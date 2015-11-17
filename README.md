@@ -5,7 +5,7 @@ http://api.csc.dig0.com/CSCPublicAPI/CoinInfo
 
 Gives information about the coin, the network and price information. The data is updated every 5 minutes.
 ## News
-http://api.csc.dig0.com/CSCPublicAPI/ActiveNews
+http://api.csc.dig0.com/CSCPublicAPI/ActiveNewsItems
 
 Returns the latest news items provided by the Casinocoin group.
 ## Promotions
