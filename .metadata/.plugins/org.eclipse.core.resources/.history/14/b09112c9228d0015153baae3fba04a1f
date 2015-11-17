@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns="http://ws.apache.org/ns/synapse" name="Casinocoin-CoinInfo" context="/CSCCoinInfo">
+    <resource methods="GET">
+        <inSequence>
+            <property name="NO_ENTITY_BODY" scope="axis2" action="remove" description="NO_ENTITY_BODY"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://csc.blockexp.info/ext/summary"/>
+                </endpoint>
+            </call>
+            <property name="Difficulty" expression="json-eval($.data[0].difficulty)" scope="default" type="STRING" description="Difficulty"/>
+            <property name="CoinSupply" expression="json-eval($.data[0].supply)" scope="default" type="STRING" description="CoinSupply"/>
+            <property name="HashRate" expression="json-eval($.data[0].hashrate)" scope="default" type="STRING" description="HashRate"/>
+            <property name="LastPrice" expression="json-eval($.data[0].lastPrice)" scope="default" type="STRING" description="LastPrice"/>
+            <log level="full" description="LogMessage"/>
+            <log description="LastPrice">
+                <property name="### lastPrice" expression="$ctx:LastPrice"/>
+            </log>
+            <property name="NO_ENTITY_BODY" scope="axis2" action="remove" description="NO_ENTITY_BODY"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://pubapi2.cryptsy.com/api.php?method=singlemarketdata"/>
+                </endpoint>
+            </call>
+            <property name="PriceBtcUsd" expression="json-eval($.return.markets.BTC.lasttradeprice)" scope="default" type="STRING" description="PriceBtcUsd"/>
+            <log description="PriceBtcUsd">
+                <property name="### PriceBtcUsd" expression="$ctx:PriceBtcUsd"/>
+            </log>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://api.fixer.io/latest?base=USD"/>
+                </endpoint>
+            </call>
+            <log description="PriceCscEur">
+                <property name="### Price CSC EUR" expression="json-eval($.rates.EUR) * $ctx:PriceBtcUsd * $ctx:LastPric)"/>
+            </log>
+            <respond description="SentResponse"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/developerstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_NF6TUI0zEeWC3OipVpHALA" type="Esb" name="task_UpdateCoinInfo.esb_diagram" measurementUnit="Pixel">
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_NF6TUY0zEeWC3OipVpHALA"/>
+  <element xmi:type="esb:EsbDiagram" href="task_UpdateCoinInfo.esb#/"/>
+</notation:Diagram>

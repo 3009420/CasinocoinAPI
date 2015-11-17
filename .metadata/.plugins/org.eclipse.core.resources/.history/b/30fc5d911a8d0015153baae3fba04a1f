@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns="http://ws.apache.org/ns/synapse" name="Casinocoin-CoinInfo" context="/CSCCoinInfo">
+    <resource methods="GET">
+        <inSequence>
+            <property name="NO_ENTITY_BODY" scope="axis2" action="remove" description="NO_ENTITY_BODY"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://csc.blockexp.info/ext/summary"/>
+                </endpoint>
+            </call>
+            <property name="CoinInfo" expression="json-eval($.data[0])" scope="default" type="STRING" description="SaveCoinInfoResult"/>
+            <log level="full" description="LogMessage"/>
+            <log description="LastPrice">
+                <property name="### lastPrice" expression="$ctx.CoinInfo"/>
+            </log>
+            <respond description="SentResponse"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

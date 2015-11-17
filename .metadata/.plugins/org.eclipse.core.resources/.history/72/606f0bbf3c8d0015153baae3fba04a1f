@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<task xmlns="http://ws.apache.org/ns/synapse" name="UpdateCoinInfoTask" class="org.apache.synapse.startup.tasks.MessageInjector" group="synapse.simple.quartz">
+    <trigger interval="10"/>
+    <property xmlns:task="http://www.wso2.org/products/wso2commons/tasks" name="message">
+        <request xmlns="org.casinocoin"/>
+    </property>
+    <property xmlns:task="http://www.wso2.org/products/wso2commons/tasks" name="injectTo" value="proxy"/>
+    <property xmlns:task="http://www.wso2.org/products/wso2commons/tasks" name="proxyName" value="CoinInfoProxy"/>
+</task>

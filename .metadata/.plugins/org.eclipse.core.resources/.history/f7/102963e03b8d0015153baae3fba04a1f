@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<proxy xmlns="http://ws.apache.org/ns/synapse" name="CoinInfoProxy" transports="https http" startOnLoad="true" trace="disable">
+    <target>
+        <inSequence>
+            <send>
+                <endpoint name="endpoint_urn_uuid_f213f62a-22c7-40e3-9826-f50d6401bc23">
+                    <address uri="http://localhost:8280/CSCCoinInfo" format="get">
+                        <timeout>
+                            <duration>5</duration>
+                        </timeout>
+                    </address>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence>
+            <drop/>
+        </outSequence>
+        <faultSequence/>
+    </target>
+</proxy>

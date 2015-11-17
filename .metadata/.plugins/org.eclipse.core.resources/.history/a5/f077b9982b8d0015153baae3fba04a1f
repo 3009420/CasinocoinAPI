@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns="http://ws.apache.org/ns/synapse" name="Casinocoin-CoinInfo" context="/CSCCoinInfo">
+    <resource methods="GET">
+        <inSequence>
+            <property name="NO_ENTITY_BODY" scope="axis2" action="remove" description="NO_ENTITY_BODY"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://csc.blockexp.info/ext/summary"/>
+                </endpoint>
+            </call>
+            <property name="Difficulty" expression="json-eval($.data[0].difficulty)" scope="default" type="STRING" description="Difficulty"/>
+            <property name="CoinSupply" expression="json-eval($.data[0].supply)" scope="default" type="STRING" description="CoinSupply"/>
+            <property name="HashRate" expression="json-eval($.data[0].hashrate)" scope="default" type="STRING" description="HashRate"/>
+            <property name="LastPrice" expression="json-eval($.data[0].lastPrice)" scope="default" type="STRING" description="LastPrice"/>
+            <property name="BlockHeight" expression="json-eval($.data[0].blockcount)" scope="default" type="STRING" description="LastPrice"/>
+            <log level="full" description="LogMessage"/>
+            <log description="LastPrice">
+                <property name="### lastPrice" expression="$ctx:LastPrice"/>
+            </log>
+            <property name="NO_ENTITY_BODY" scope="axis2" action="remove" description="NO_ENTITY_BODY"/>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="https://www.bitstamp.net/api/ticker/"/>
+                </endpoint>
+            </call>
+            <property name="PriceBtcUsd" expression="json-eval($.last)" scope="default" type="STRING" description="PriceBtcUsd"/>
+            <log description="PriceBtcUsd">
+                <property name="### PriceBtcUsd" expression="$ctx:PriceBtcUsd"/>
+            </log>
+            <call>
+                <endpoint>
+                    <http method="get" uri-template="http://api.fixer.io/latest?base=USD"/>
+                </endpoint>
+            </call>
+            <property name="PriceUsdEur" expression="json-eval($.rates.EUR)" scope="default" type="STRING" description="PriceBtcUsd"/>
+            <property name="PriceUsdCny" expression="json-eval($.rates.CNY)" scope="default" type="STRING" description="PriceUsdCny"/>
+            <property name="PriceUsdJpy" expression="json-eval($.rates.JPY)" scope="default" type="STRING" description="PriceUsdJpy"/>
+            <property name="PriceUsdRub" expression="json-eval($.rates.RUB)" scope="default" type="STRING" description="PriceUsdRub"/>
+            <log description="PriceEur">
+                <property name="### Price EUR" expression="$ctx:PriceUsdEur"/>
+            </log>
+            <log description="PriceCscEur">
+                <property name="### Price CSC EUR" expression="number($ctx:PriceUsdEur) * number($ctx:PriceBtcUsd) * number($ctx:LastPrice)"/>
+            </log>
+            <payloadFactory media-type="json" description="CreateDBPayload">
+                <format>{ setCoinInfo :{&#13;
+ "Difficulty" : $1,&#13;
+ "Hashrate" : $2,&#13;
+ "CoinSupply" : $3,&#13;
+ "BlockHeight" : $4,&#13;
+ "PriceBTC" : $5,&#13;
+ "PriceUSD" : $6,&#13;
+ "PriceEUR" : $7,&#13;
+ "PriceCNY" : $8,&#13;
+ "PriceJPY" : $9,&#13;
+ "PriceRUB" : $10&#13;
+} }</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:Difficulty"/>
+                    <arg evaluator="xml" expression="$ctx:HashRate"/>
+                    <arg evaluator="xml" expression="$ctx:CoinSupply"/>
+                    <arg evaluator="xml" expression="$ctx:BlockHeight"/>
+                    <arg evaluator="xml" expression="number($ctx:LastPrice)"/>
+                    <arg evaluator="xml" expression="number($ctx:PriceBtcUsd) * number($ctx:LastPrice)"/>
+                    <arg evaluator="xml" expression="number($ctx:PriceUsdEur) * number($ctx:PriceBtcUsd) * number($ctx:LastPrice)"/>
+                    <arg evaluator="xml" expression="number($ctx:PriceUsdCny) * number($ctx:PriceBtcUsd) * number($ctx:LastPrice)"/>
+                    <arg evaluator="xml" expression="number($ctx:PriceUsdJpy) * number($ctx:PriceBtcUsd) * number($ctx:LastPrice)"/>
+                    <arg evaluator="xml" expression="number($ctx:PriceUsdRub) * number($ctx:PriceBtcUsd) * number($ctx:LastPrice)"/>
+                </args>
+            </payloadFactory>
+            <send>
+                <endpoint>
+                    <address uri="http://localhost:9773/services/Casinocoin-Public-API-DSS.HTTPEndpoint/setCoinInfo" format="rest"/>
+                </endpoint>
+            </send>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+</api>

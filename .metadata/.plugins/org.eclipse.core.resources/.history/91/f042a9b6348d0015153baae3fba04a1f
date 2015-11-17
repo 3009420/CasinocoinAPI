@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?><artifacts>
+    <artifact name="Casinocoin-Public-API" groupId="org.casinocoin.Public-API-ESB.api" version="0.1.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Casinocoin-Public-API.xml</file>
+    </artifact>
+    <artifact name="Casinocoin-CoinInfo" groupId="org.casinocoin.Public-API-ESB.api" version="0.1.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Casinocoin-CoinInfo.xml</file>
+    </artifact>
+    <artifact name="UpdateCoinInfo" groupId="org.casinocoin.Public-API-ESB.task" version="0.1.0" type="synapse/task" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/tasks/UpdateCoinInfo.xml</file>
+    </artifact>
+    <artifact name="CoinInfoProxy" groupId="org.casinocoin.Public-API-ESB.proxy-service" version="0.1.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/CoinInfoProxy.xml</file>
+    </artifact>
+</artifacts>
