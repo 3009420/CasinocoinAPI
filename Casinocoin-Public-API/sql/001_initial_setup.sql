@@ -15,13 +15,22 @@ COMMENT = 'Casinocoin News table';
 CREATE TABLE csc_public_api.exchanges
 (
   id int(255) NOT NULL AUTO_INCREMENT,
+  short_name varchar(20) NOT NULL,
   exchange_name varchar(1024) NOT NULL,
   access_url varchar(1024) NOT NULL,
   description text NULL,
+  exchange_image longtext NULL,
+  image_mime_type varchar(1024) NULL,
+  last_bid_price_btc DECIMAL(20,8) NULL,
+  last_ask_price_btc DECIMAL(20,8) NULL,
+  last_price_btc DECIMAL(20,8) NULL,
+  volume24h DECIMAL(20,8) NULL,
   creation_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  valid_from timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  last_update_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  valid_from timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   valid_to timestamp NULL,
-  CONSTRAINT ECS_PK PRIMARY KEY (id)
+  CONSTRAINT ECS_PK PRIMARY KEY (id),
+  CONSTRAINT ECS_UK1 UNIQUE KEY (short_name)
 )
 COMMENT = 'Casinocoin available Exchanges table';
 
@@ -32,7 +41,7 @@ CREATE TABLE csc_public_api.casinos
   access_url varchar(1024) NOT NULL,
   description text NULL,
   creation_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  valid_from timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  valid_from timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   valid_to timestamp NULL,
   CONSTRAINT CSS_PK PRIMARY KEY (id)
 )
@@ -47,7 +56,7 @@ CREATE TABLE csc_public_api.bootstraps
   filename varchar(1024) NULL,
   filesize int(255) NULL,
   creation_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  valid_from timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  valid_from timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   valid_to timestamp NULL,
   CONSTRAINT BSS_PK PRIMARY KEY (id)
 )
@@ -62,7 +71,7 @@ CREATE TABLE csc_public_api.promotions
   promotion_image longtext NULL,
   image_mime_type varchar(1024) NULL,
   creation_time timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  valid_from timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  valid_from timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   valid_to timestamp NULL,
   CONSTRAINT PTS_PK PRIMARY KEY (id)
 )

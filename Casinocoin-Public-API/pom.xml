@@ -4,18 +4,25 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>org.casinocoin.Public-API</groupId>
   <artifactId>Casinocoin-Public-API</artifactId>
-  <version>0.1.0</version>
+  <version>0.1.1</version>
   <packaging>carbon/application</packaging>
   <name>Casinocoin-Public-API</name>
   <description>Casinocoin-Public-API</description>
   <properties>
-    <org.casinocoin.Public-API-DSS_._Casinocoin-Public-API-DSS>capp/DataServicesServer</org.casinocoin.Public-API-DSS_._Casinocoin-Public-API-DSS>
+    <org.casinocoin.Public-API-ESB.sequence_._updateCryptsy>capp/EnterpriseServiceBus</org.casinocoin.Public-API-ESB.sequence_._updateCryptsy>
+    <artifact.types>jaggery/app=zip,service/rule=aar,lib/library/bundle=jar,synapse/message-processors=xml,synapse/endpointTemplate=xml,synapse/proxy-service=xml,synapse/message-store=xml,carbon/application=car,registry/resource=zip,lib/dataservice/validator=jar,synapse/endpoint=xml,web/application=war,synapse/sequence=xml,synapse/configuration=xml,lib/registry/handlers=jar,synapse/task=xml,service/meta=xml,webapp/jaxws=war,synapse/api=xml,cep/bucket=xml,bpel/workflow=zip,lib/registry/filter=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/priority-executor=xml,synapse/event-source=xml,synapse/template=xml,lib/carbon/ui=jar,service/axis2=aar,synapse/sequenceTemplate=xml,wso2/gadget=dar,lib/synapse/mediator=jar</artifact.types>
+    <org.casinocoin.Public-API-ESB.api_._Casinocoin-UserRegistration>capp/EnterpriseServiceBus</org.casinocoin.Public-API-ESB.api_._Casinocoin-UserRegistration>
+    <org.casinocoin.Public-API-ESB.proxy-service_._ExchangeInfoProxy>capp/EnterpriseServiceBus</org.casinocoin.Public-API-ESB.proxy-service_._ExchangeInfoProxy>
     <org.casinocoin.Public-API-ESB.api_._Casinocoin-CoinInfo>capp/EnterpriseServiceBus</org.casinocoin.Public-API-ESB.api_._Casinocoin-CoinInfo>
     <org.casinocoin.Public-API-ESB.api_._Casinocoin-Public-API>capp/EnterpriseServiceBus</org.casinocoin.Public-API-ESB.api_._Casinocoin-Public-API>
-    <org.casinocoin.Public-API-ESB.proxy-service_._CoinInfoProxy>capp/EnterpriseServiceBus</org.casinocoin.Public-API-ESB.proxy-service_._CoinInfoProxy>
+    <org.casinocoin.Public-API-DSS_._Casinocoin-Public-API-DSS>capp/DataServicesServer</org.casinocoin.Public-API-DSS_._Casinocoin-Public-API-DSS>
     <com.example.Casinocoin-Public-API-DSS_._Casinocoin-Public-API-DSS>capp/DataServicesServer</com.example.Casinocoin-Public-API-DSS_._Casinocoin-Public-API-DSS>
+    <org.casinocoin.Public-API-ESB.proxy-service_._CoinInfoProxy>capp/EnterpriseServiceBus</org.casinocoin.Public-API-ESB.proxy-service_._CoinInfoProxy>
+    <org.casinocoin.Public-API-ESB.api_._Casinocoin-ExchangeInfo>capp/EnterpriseServiceBus</org.casinocoin.Public-API-ESB.api_._Casinocoin-ExchangeInfo>
+    <org.casinocoin.Public-API-ESB.sequence_._updateAlterdice>capp/EnterpriseServiceBus</org.casinocoin.Public-API-ESB.sequence_._updateAlterdice>
     <org.casinocoin.Public-API-ESB.task_._UpdateCoinInfoTask>capp/EnterpriseServiceBus</org.casinocoin.Public-API-ESB.task_._UpdateCoinInfoTask>
-    <artifact.types>jaggery/app=zip,service/rule=aar,lib/library/bundle=jar,synapse/message-processors=xml,synapse/endpointTemplate=xml,synapse/proxy-service=xml,synapse/message-store=xml,carbon/application=car,registry/resource=zip,lib/dataservice/validator=jar,synapse/endpoint=xml,web/application=war,synapse/sequence=xml,synapse/configuration=xml,lib/registry/handlers=jar,synapse/task=xml,service/meta=xml,webapp/jaxws=war,synapse/api=xml,cep/bucket=xml,bpel/workflow=zip,lib/registry/filter=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/priority-executor=xml,synapse/event-source=xml,synapse/template=xml,lib/carbon/ui=jar,service/axis2=aar,synapse/sequenceTemplate=xml,wso2/gadget=dar,lib/synapse/mediator=jar</artifact.types>
+    <org.casinocoin.Public-API-ESB.task_._UpdateExchangeInfoTask>capp/EnterpriseServiceBus</org.casinocoin.Public-API-ESB.task_._UpdateExchangeInfoTask>
+    <org.casinocoin.Public-API-ESB.sequence_._updateAlcurEX>capp/EnterpriseServiceBus</org.casinocoin.Public-API-ESB.sequence_._updateAlcurEX>
   </properties>
   <dependencies>
     <dependency>
@@ -37,12 +44,54 @@
       <type>xml</type>
     </dependency>
     <dependency>
+      <groupId>org.casinocoin.Public-API-ESB.proxy-service</groupId>
+      <artifactId>ExchangeInfoProxy</artifactId>
+      <version>0.1.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>org.casinocoin.Public-API-ESB.sequence</groupId>
+      <artifactId>updateAlcurEX</artifactId>
+      <version>0.1.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>org.casinocoin.Public-API-ESB.sequence</groupId>
+      <artifactId>updateCryptsy</artifactId>
+      <version>0.1.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>org.casinocoin.Public-API-ESB.api</groupId>
+      <artifactId>Casinocoin-ExchangeInfo</artifactId>
+      <version>0.1.0</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>org.casinocoin.Public-API-ESB.api</groupId>
+      <artifactId>Casinocoin-UserRegistration</artifactId>
+      <version>0.1.1</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>org.casinocoin.Public-API-ESB.sequence</groupId>
+      <artifactId>updateAlterdice</artifactId>
+      <version>0.1.1</version>
+      <type>xml</type>
+    </dependency>
+    <dependency>
       <groupId>org.casinocoin.Public-API-ESB.api</groupId>
       <artifactId>Casinocoin-Public-API</artifactId>
       <version>0.1.0</version>
       <type>xml</type>
       <scope>system</scope>
       <systemPath>${basedir}\Casinocoin-Public-API-ESB\target\capp\artifacts\api\Casinocoin-Public-API\pom.xml</systemPath>
+    </dependency>
+    <dependency>
+      <groupId>org.casinocoin.Public-API-ESB.task</groupId>
+      <artifactId>UpdateExchangeInfoTask</artifactId>
+      <version>0.1.0</version>
+      <type>xml</type>
     </dependency>
     <dependency>
       <groupId>org.casinocoin.Public-API-DSS</groupId>

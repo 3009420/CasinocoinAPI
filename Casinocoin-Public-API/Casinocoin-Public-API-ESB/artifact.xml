@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?><artifacts>
-    <artifact name="Casinocoin-Public-API" groupId="org.casinocoin.Public-API-ESB.api" version="0.1.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+    <artifact name="Casinocoin-Public-API" groupId="org.casinocoin.Public-API-ESB.api" version="0.1.1" type="synapse/api" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/api/Casinocoin-Public-API.xml</file>
     </artifact>
-    <artifact name="Casinocoin-CoinInfo" groupId="org.casinocoin.Public-API-ESB.api" version="0.1.0" type="synapse/api" serverRole="EnterpriseServiceBus">
+    <artifact name="Casinocoin-CoinInfo" groupId="org.casinocoin.Public-API-ESB.api" version="0.1.1" type="synapse/api" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/api/Casinocoin-CoinInfo.xml</file>
     </artifact>
-    <artifact name="UpdateCoinInfoTask" groupId="org.casinocoin.Public-API-ESB.task" version="0.1.0" type="synapse/task" serverRole="EnterpriseServiceBus">
+    <artifact name="UpdateCoinInfoTask" groupId="org.casinocoin.Public-API-ESB.task" version="0.1.1" type="synapse/task" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/tasks/UpdateCoinInfoTask.xml</file>
     </artifact>
-    <artifact name="CoinInfoProxy" groupId="org.casinocoin.Public-API-ESB.proxy-service" version="0.1.0" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+    <artifact name="Casinocoin-ExchangeInfo" groupId="org.casinocoin.Public-API-ESB.api" version="0.1.1" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Casinocoin-ExchangeInfo.xml</file>
+    </artifact>
+    <artifact name="ExchangeInfoProxy" groupId="org.casinocoin.Public-API-ESB.proxy-service" version="0.1.1" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/proxy-services/ExchangeInfoProxy.xml</file>
+    </artifact>
+    <artifact name="CoinInfoProxy" groupId="org.casinocoin.Public-API-ESB.proxy-service" version="0.1.1" type="synapse/proxy-service" serverRole="EnterpriseServiceBus">
         <file>src/main/synapse-config/proxy-services/CoinInfoProxy.xml</file>
+    </artifact>
+    <artifact name="UpdateExchangeInfoTask" groupId="org.casinocoin.Public-API-ESB.task" version="0.1.1" type="synapse/task" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/tasks/UpdateExchangeInfoTask.xml</file>
+    </artifact>
+    <artifact name="updateCryptsy" groupId="org.casinocoin.Public-API-ESB.sequence" version="0.1.1" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/updateCryptsy.xml</file>
+    </artifact>
+    <artifact name="updateAlcurEX" groupId="org.casinocoin.Public-API-ESB.sequence" version="0.1.1" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/updateAlcurEX.xml</file>
+    </artifact>
+    <artifact name="updateAlterdice" groupId="org.casinocoin.Public-API-ESB.sequence" version="0.1.1" type="synapse/sequence" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/sequences/updateAlterdice.xml</file>
+    </artifact>
+    <artifact name="Casinocoin-UserRegistration" groupId="org.casinocoin.Public-API-ESB.api" version="0.1.1" type="synapse/api" serverRole="EnterpriseServiceBus">
+        <file>src/main/synapse-config/api/Casinocoin-UserRegistration.xml</file>
     </artifact>
 </artifacts>

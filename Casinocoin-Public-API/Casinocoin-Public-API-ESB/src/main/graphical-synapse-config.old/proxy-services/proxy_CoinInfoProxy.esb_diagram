@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/developerstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_3EGX0JUbEeWpd_xcOPP-sA" type="Esb" name="proxy_CoinInfoProxy.esb_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_GDH74pUcEeWpd_xcOPP-sA" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_GDH755UcEeWpd_xcOPP-sA" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_SZteMLqkEeWBTvj_21rfOA" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_SZteNbqkEeWBTvj_21rfOA" type="5003"/>
+        <children xmi:type="notation:Node" xmi:id="_SZteNrqkEeWBTvj_21rfOA" type="3002">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_SZteN7qkEeWBTvj_21rfOA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_SZteOLqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_SZteObqkEeWBTvj_21rfOA"/>
+          <element xmi:type="esb:ProxyOutputConnector" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@outputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SZteOrqkEeWBTvj_21rfOA" x="81" y="-27"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_SZteO7qkEeWBTvj_21rfOA" type="3003">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_SZtePLqkEeWBTvj_21rfOA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_SZtePbqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_SZtePrqkEeWBTvj_21rfOA"/>
+          <element xmi:type="esb:ProxyInputConnector" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@inputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SZteP7qkEeWBTvj_21rfOA" x="81" y="-15"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_SZteQLqkEeWBTvj_21rfOA" type="3729">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_SZteQbqkEeWBTvj_21rfOA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_SZteQrqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_SZteQ7qkEeWBTvj_21rfOA"/>
+          <element xmi:type="esb:ProxyOutSequenceOutputConnector" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@outSequenceOutputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SZteRLqkEeWBTvj_21rfOA" x="105" y="-15"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_SZteRbqkEeWBTvj_21rfOA" type="3489">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_SZteRrqkEeWBTvj_21rfOA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_SZteR7qkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_SZteSLqkEeWBTvj_21rfOA"/>
+          <element xmi:type="esb:ProxyFaultInputConnector" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@faultInputConnector"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SZteSbqkEeWBTvj_21rfOA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_SZteSrqkEeWBTvj_21rfOA" type="3486">
+          <children xmi:type="notation:Node" xmi:id="_SZteT7qkEeWBTvj_21rfOA" type="3487">
+            <children xmi:type="notation:Node" xmi:id="_SZ2oILqkEeWBTvj_21rfOA" type="3608">
+              <children xmi:type="notation:DecorationNode" xmi:id="_SZ2oJbqkEeWBTvj_21rfOA" type="7034">
+                <children xmi:type="notation:Node" xmi:id="_SaAZILqkEeWBTvj_21rfOA" type="3492">
+                  <children xmi:type="notation:DecorationNode" xmi:id="_SaAZJbqkEeWBTvj_21rfOA" type="5167"/>
+                  <children xmi:type="notation:Node" xmi:id="_SaAZJrqkEeWBTvj_21rfOA" type="3033">
+                    <styles xmi:type="notation:DescriptionStyle" xmi:id="_SaAZJ7qkEeWBTvj_21rfOA"/>
+                    <styles xmi:type="notation:FontStyle" xmi:id="_SaAZKLqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+                    <styles xmi:type="notation:LineStyle" xmi:id="_SaAZKbqkEeWBTvj_21rfOA"/>
+                    <element xmi:type="esb:PropertyMediatorInputConnector" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@inputConnector"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SaAZKrqkEeWBTvj_21rfOA" x="-6" y="-5"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_SaAZK7qkEeWBTvj_21rfOA" type="3034">
+                    <styles xmi:type="notation:DescriptionStyle" xmi:id="_SaAZLLqkEeWBTvj_21rfOA"/>
+                    <styles xmi:type="notation:FontStyle" xmi:id="_SaAZLbqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+                    <styles xmi:type="notation:LineStyle" xmi:id="_SaAZLrqkEeWBTvj_21rfOA"/>
+                    <element xmi:type="esb:PropertyMediatorOutputConnector" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@outputConnector"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SaAZL7qkEeWBTvj_21rfOA" x="-11" y="-9"/>
+                  </children>
+                  <styles xmi:type="notation:DescriptionStyle" xmi:id="_SaAZIbqkEeWBTvj_21rfOA"/>
+                  <styles xmi:type="notation:FontStyle" xmi:id="_SaAZIrqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+                  <styles xmi:type="notation:LineStyle" xmi:id="_SaAZI7qkEeWBTvj_21rfOA"/>
+                  <element xmi:type="esb:PropertyMediator" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SaAZJLqkEeWBTvj_21rfOA" x="46" y="50" width="79" height="75"/>
+                </children>
+                <children xmi:type="notation:Node" xmi:id="_SaL_ULqkEeWBTvj_21rfOA" type="3515">
+                  <children xmi:type="notation:Node" xmi:id="_SaN0gLqkEeWBTvj_21rfOA" type="3085">
+                    <styles xmi:type="notation:DescriptionStyle" xmi:id="_SaN0gbqkEeWBTvj_21rfOA"/>
+                    <styles xmi:type="notation:FontStyle" xmi:id="_SaN0grqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+                    <styles xmi:type="notation:LineStyle" xmi:id="_SaN0g7qkEeWBTvj_21rfOA"/>
+                    <element xmi:type="esb:SendMediatorInputConnector" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@InputConnector"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SaN0hLqkEeWBTvj_21rfOA" x="-6" y="-5"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_SaN0hbqkEeWBTvj_21rfOA" type="3086">
+                    <styles xmi:type="notation:DescriptionStyle" xmi:id="_SaN0hrqkEeWBTvj_21rfOA"/>
+                    <styles xmi:type="notation:FontStyle" xmi:id="_SaN0h7qkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+                    <styles xmi:type="notation:LineStyle" xmi:id="_SaN0iLqkEeWBTvj_21rfOA"/>
+                    <element xmi:type="esb:SendMediatorOutputConnector" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@OutputConnector"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SaN0ibqkEeWBTvj_21rfOA" x="-11" y="-9"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_SaN0irqkEeWBTvj_21rfOA" type="3539">
+                    <styles xmi:type="notation:DescriptionStyle" xmi:id="_SaN0i7qkEeWBTvj_21rfOA"/>
+                    <styles xmi:type="notation:FontStyle" xmi:id="_SaN0jLqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+                    <styles xmi:type="notation:LineStyle" xmi:id="_SaN0jbqkEeWBTvj_21rfOA"/>
+                    <element xmi:type="esb:SendMediatorEndpointOutputConnector" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@endpointOutputConnector"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SaN0jrqkEeWBTvj_21rfOA"/>
+                  </children>
+                  <children xmi:type="notation:Node" xmi:id="_SaN0j7qkEeWBTvj_21rfOA" type="3728">
+                    <children xmi:type="notation:DecorationNode" xmi:id="_SaN0lLqkEeWBTvj_21rfOA" type="7046">
+                      <children xmi:type="notation:Node" xmi:id="_SaXlgLqkEeWBTvj_21rfOA" type="3709">
+                        <children xmi:type="notation:DecorationNode" xmi:id="_SaXlhbqkEeWBTvj_21rfOA" type="5206"/>
+                        <children xmi:type="notation:Node" xmi:id="_SaXlhrqkEeWBTvj_21rfOA" type="3710">
+                          <styles xmi:type="notation:DescriptionStyle" xmi:id="_SaXlh7qkEeWBTvj_21rfOA"/>
+                          <styles xmi:type="notation:FontStyle" xmi:id="_SaXliLqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+                          <styles xmi:type="notation:LineStyle" xmi:id="_SaXlibqkEeWBTvj_21rfOA"/>
+                          <element xmi:type="esb:HTTPEndPointInputConnector" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@mediatorFlow/@children.0/@inputConnector"/>
+                          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SaXlirqkEeWBTvj_21rfOA"/>
+                        </children>
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_SaXlgbqkEeWBTvj_21rfOA"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_SaXlgrqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_SaXlg7qkEeWBTvj_21rfOA"/>
+                        <element xmi:type="esb:HTTPEndpoint" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@mediatorFlow/@children.0"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SaXlhLqkEeWBTvj_21rfOA" x="5" y="103"/>
+                      </children>
+                      <styles xmi:type="notation:TitleStyle" xmi:id="_SaN0lbqkEeWBTvj_21rfOA" showTitle="true"/>
+                    </children>
+                    <styles xmi:type="notation:DescriptionStyle" xmi:id="_SaN0kLqkEeWBTvj_21rfOA"/>
+                    <styles xmi:type="notation:FontStyle" xmi:id="_SaN0kbqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+                    <styles xmi:type="notation:LineStyle" xmi:id="_SaN0krqkEeWBTvj_21rfOA"/>
+                    <element xmi:type="esb:MediatorFlow" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@mediatorFlow"/>
+                    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SaN0k7qkEeWBTvj_21rfOA"/>
+                  </children>
+                  <styles xmi:type="notation:DescriptionStyle" xmi:id="_SaL_UbqkEeWBTvj_21rfOA"/>
+                  <styles xmi:type="notation:FontStyle" xmi:id="_SaL_UrqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+                  <styles xmi:type="notation:LineStyle" xmi:id="_SaL_U7qkEeWBTvj_21rfOA"/>
+                  <element xmi:type="esb:SendMediator" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SaL_VLqkEeWBTvj_21rfOA" x="142" y="58" width="170" height="100"/>
+                </children>
+                <styles xmi:type="notation:TitleStyle" xmi:id="_SZ2oJrqkEeWBTvj_21rfOA" showTitle="true"/>
+              </children>
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_SZ2oIbqkEeWBTvj_21rfOA"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_SZ2oIrqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_SZ2oI7qkEeWBTvj_21rfOA"/>
+              <element xmi:type="esb:MediatorFlow" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SZ2oJLqkEeWBTvj_21rfOA"/>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_SZteULqkEeWBTvj_21rfOA"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_SZteUbqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_SZteUrqkEeWBTvj_21rfOA"/>
+            <element xmi:type="esb:ProxyServiceSequenceAndEndpointContainer" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SZteU7qkEeWBTvj_21rfOA"/>
+          </children>
+          <children xmi:type="notation:Node" xmi:id="_SZteVLqkEeWBTvj_21rfOA" type="3488">
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_SZteVbqkEeWBTvj_21rfOA"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_SZteVrqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_SZteV7qkEeWBTvj_21rfOA"/>
+            <element xmi:type="esb:ProxyServiceFaultContainer" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@faultContainer"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SZteWLqkEeWBTvj_21rfOA"/>
+          </children>
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_SZteS7qkEeWBTvj_21rfOA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_SZteTLqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_SZteTbqkEeWBTvj_21rfOA"/>
+          <element xmi:type="esb:ProxyServiceContainer" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SZteTrqkEeWBTvj_21rfOA"/>
+        </children>
+        <children xmi:type="notation:Node" xmi:id="_SaN0lrqkEeWBTvj_21rfOA" type="3731">
+          <styles xmi:type="notation:DescriptionStyle" xmi:id="_SaN0l7qkEeWBTvj_21rfOA"/>
+          <styles xmi:type="notation:FontStyle" xmi:id="_SaN0mLqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+          <styles xmi:type="notation:LineStyle" xmi:id="_SaN0mbqkEeWBTvj_21rfOA"/>
+          <element xmi:type="esb:ProxyInSequenceInputConnector" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@inSequenceInputConnectors.0"/>
+          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SaN0mrqkEeWBTvj_21rfOA"/>
+        </children>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_SZteMbqkEeWBTvj_21rfOA"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_SZteMrqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_SZteM7qkEeWBTvj_21rfOA"/>
+        <element xmi:type="esb:ProxyService" href="proxy_CoinInfoProxy.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SZteNLqkEeWBTvj_21rfOA" width="300" height="400"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_GDH745UcEeWpd_xcOPP-sA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_GDH75JUcEeWpd_xcOPP-sA" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_GDH75ZUcEeWpd_xcOPP-sA"/>
+    <element xmi:type="esb:EsbServer" href="proxy_CoinInfoProxy.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GDH75pUcEeWpd_xcOPP-sA"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_3EGX0ZUbEeWpd_xcOPP-sA"/>
+  <element xmi:type="esb:EsbDiagram" href="proxy_CoinInfoProxy.esb#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_SaikoLqkEeWBTvj_21rfOA" type="4001" source="_SZteNrqkEeWBTvj_21rfOA" target="_SaAZJrqkEeWBTvj_21rfOA" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_SaikobqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SaikorqkEeWBTvj_21rfOA" points="[11, 5, -5, 0]$[10, 0, -6, -5]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_SalA4LqkEeWBTvj_21rfOA" type="4001" source="_SaAZK7qkEeWBTvj_21rfOA" target="_SaN0gLqkEeWBTvj_21rfOA" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_SalA4bqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_SalA4rqkEeWBTvj_21rfOA" points="[-11, 0, -6, 0]$[1, 0, 6, 0]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_Sam2ELqkEeWBTvj_21rfOA" type="4001" source="_SaN0irqkEeWBTvj_21rfOA" target="_SaXlhrqkEeWBTvj_21rfOA" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_Sam2EbqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@endpointOutputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Sam2ErqkEeWBTvj_21rfOA" points="[2, 9, -31, -110]$[31, 114, -2, -5]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_Sam2E7qkEeWBTvj_21rfOA" type="4001" source="_SaN0hbqkEeWBTvj_21rfOA" target="_SaN0lrqkEeWBTvj_21rfOA" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_Sam2FLqkEeWBTvj_21rfOA" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="proxy_CoinInfoProxy.esb#//@server/@children.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@OutputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Sam2FbqkEeWBTvj_21rfOA" points="[7, -9, -16, 18]$[18, -22, -5, 5]"/>
+  </edges>
+</notation:Diagram>

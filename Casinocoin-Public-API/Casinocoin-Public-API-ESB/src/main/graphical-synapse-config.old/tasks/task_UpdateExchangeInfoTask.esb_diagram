@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/developerstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_8VbcoJUdEeWpd_xcOPP-sA" type="Esb" name="task_UpdateExchangeInfoTask.esb_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_8WGLAJUdEeWpd_xcOPP-sA" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_8WGLBZUdEeWpd_xcOPP-sA" type="7001">
+      <children xmi:type="notation:Node" xmi:id="_GOArUJUeEeWpd_xcOPP-sA" type="3667">
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_GOArUZUeEeWpd_xcOPP-sA"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_GOArUpUeEeWpd_xcOPP-sA" fontName="Segoe UI"/>
+        <styles xmi:type="notation:LineStyle" xmi:id="_GOArU5UeEeWpd_xcOPP-sA"/>
+        <element xmi:type="esb:Task" href="task_UpdateExchangeInfoTask.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GOArVJUeEeWpd_xcOPP-sA" width="75" height="75"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_8WGLAZUdEeWpd_xcOPP-sA"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_8WGLApUdEeWpd_xcOPP-sA" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_8WGLA5UdEeWpd_xcOPP-sA"/>
+    <element xmi:type="esb:EsbServer" href="task_UpdateExchangeInfoTask.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_8WGLBJUdEeWpd_xcOPP-sA"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_8VbcoZUdEeWpd_xcOPP-sA"/>
+  <element xmi:type="esb:EsbDiagram" href="task_UpdateExchangeInfoTask.esb#/"/>
+</notation:Diagram>

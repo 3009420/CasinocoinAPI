@@ -2,17 +2,41 @@
 <api xmlns="http://ws.apache.org/ns/synapse" name="Casinocoin-CoinInfo" context="/CSCCoinInfo">
     <resource methods="GET">
         <inSequence>
-            <property name="NO_ENTITY_BODY" scope="axis2" action="remove" description="NO_ENTITY_BODY"/>
-            <call>
-                <endpoint>
-                    <http method="get" uri-template="http://csc.blockexp.info/ext/summary"/>
-                </endpoint>
-            </call>
-            <property name="Difficulty" expression="json-eval($.data[0].difficulty)" scope="default" type="STRING" description="Difficulty"/>
-            <property name="CoinSupply" expression="json-eval($.data[0].supply)" scope="default" type="STRING" description="CoinSupply"/>
-            <property name="HashRate" expression="json-eval($.data[0].hashrate)" scope="default" type="STRING" description="HashRate"/>
-            <property name="LastPrice" expression="json-eval($.data[0].lastPrice)" scope="default" type="STRING" description="LastPrice"/>
-            <property name="BlockHeight" expression="json-eval($.data[0].blockcount)" scope="default" type="STRING" description="LastPrice"/>
+            <switch source="$ctx:query.param.BlockHash">
+                <case regex="[a-zA-Z0-9]+">
+                    <property name="BlockHash" expression="$ctx:query.param.BlockHash" scope="default" type="STRING"/>
+                </case>
+                <default>
+                    <payloadFactory media-type="json" description="GetBlockHash">
+                        <format>{"jsonrpc": "1.0", "id": "wso2rpc", "method": "getbestblockhash", "params": []}</format>
+                        <args/>
+                    </payloadFactory>
+                    <property name="Authorization" expression="fn:concat('Basic ', base64Encode('casinocoinrpc:9x9iu8533XSucSpW9YDmN3ZXwR595AjeVo1pDCmvxSy5'))" scope="transport" type="STRING"/>
+                    <property name="DISABLE_CHUNKING" value="true" scope="axis2" type="STRING"/>
+                    <property name="messageType" value="application/json" scope="axis2" type="STRING" description="messageType"/>
+                    <call>
+                        <endpoint>
+                            <http method="post" uri-template="http://localhost:9432/"/>
+                        </endpoint>
+                    </call>
+                    <property name="BlockHash" expression="json-eval($.result)" scope="default" type="STRING"/>
+                </default>
+            </switch>
+            <log description="LogBlockHash">
+                <property name="#" value="######"/>
+                <property name="### BlockHash: " expression="$ctx:BlockHash"/>
+            </log>
+            <dblookup description="GetLastCSCPrice">
+                <connection>
+                    <pool>
+                        <dsName>jdbc/CscPublicApiDS</dsName>
+                    </pool>
+                </connection>
+                <statement>
+                    <sql>SELECT MAX(last_price_btc) AS MAX_PRICE FROM csc_public_api.exchanges WHERE valid_from &lt; now() and (valid_to IS NULL or valid_to &gt; now());</sql>
+                    <result name="LastPrice" column="MAX_PRICE"/>
+                </statement>
+            </dblookup>
             <property name="NO_ENTITY_BODY" scope="axis2" action="remove" description="NO_ENTITY_BODY"/>
             <call>
                 <endpoint>
@@ -29,26 +53,83 @@
             <property name="PriceUsdCny" expression="json-eval($.rates.CNY)" scope="default" type="STRING" description="PriceUsdCny"/>
             <property name="PriceUsdJpy" expression="json-eval($.rates.JPY)" scope="default" type="STRING" description="PriceUsdJpy"/>
             <property name="PriceUsdRub" expression="json-eval($.rates.RUB)" scope="default" type="STRING" description="PriceUsdRub"/>
+            <payloadFactory media-type="json" description="CreateMiningInfoPayload">
+                <format>{"jsonrpc": "1.0", "id": "wso2rpc", "method": "getmininginfo", "params": []}</format>
+                <args/>
+            </payloadFactory>
+            <property name="Authorization" expression="fn:concat('Basic ', base64Encode('casinocoinrpc:9x9iu8533XSucSpW9YDmN3ZXwR595AjeVo1pDCmvxSy5'))" scope="transport" type="STRING"/>
+            <property name="DISABLE_CHUNKING" value="true" scope="axis2" type="STRING"/>
+            <property name="messageType" value="application/json" scope="axis2" type="STRING" description="messageType"/>
+            <call>
+                <endpoint>
+                    <http method="post" uri-template="http://localhost:9432/"/>
+                </endpoint>
+            </call>
+            <property name="Difficulty" expression="json-eval($.result.difficulty)" scope="default" type="STRING" description="Difficulty"/>
+            <property name="HashRate" expression="json-eval($.result.networkhashps)" scope="default" type="STRING" description="HashRate"/>
+            <property name="HashRateGH" expression="number($ctx:HashRate) div 1000000000" scope="default" type="STRING" description="HashRate"/>
+            <property name="BlockHeight" expression="json-eval($.result.blocks)" scope="default" type="STRING" description="LastPrice"/>
+            <payloadFactory media-type="json" description="CreateCoinsupplyPayload">
+                <format>{"jsonrpc": "1.0", "id": "wso2rpc", "method": "getcoinsupply", "params": []}</format>
+                <args/>
+            </payloadFactory>
+            <property name="Authorization" expression="fn:concat('Basic ', base64Encode('casinocoinrpc:9x9iu8533XSucSpW9YDmN3ZXwR595AjeVo1pDCmvxSy5'))" scope="transport" type="STRING"/>
+            <property name="DISABLE_CHUNKING" value="true" scope="axis2" type="STRING"/>
+            <property name="messageType" value="application/json" scope="axis2" type="STRING" description="messageType"/>
+            <call>
+                <endpoint>
+                    <http method="post" uri-template="http://localhost:9432/"/>
+                </endpoint>
+            </call>
+            <property name="CoinSupply" expression="json-eval($.result)" scope="default" type="STRING" description="CoinSupply"/>
+            <payloadFactory media-type="json" description="CreateBlockInfoPayload">
+                <format>{"jsonrpc": "1.0", "id": "wso2rpc", "method": "getblock", "params": ["$1"]}</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:BlockHash"/>
+                </args>
+            </payloadFactory>
+            <property name="Authorization" expression="fn:concat('Basic ', base64Encode('casinocoinrpc:9x9iu8533XSucSpW9YDmN3ZXwR595AjeVo1pDCmvxSy5'))" scope="transport" type="STRING"/>
+            <property name="DISABLE_CHUNKING" value="true" scope="axis2" type="STRING"/>
+            <property name="messageType" value="application/json" scope="axis2" type="STRING" description="messageType"/>
+            <call>
+                <endpoint>
+                    <http method="post" uri-template="http://localhost:9432/"/>
+                </endpoint>
+            </call>
+            <log description="LogRPCResult">
+                <property name="#" value="######"/>
+                <property name="### BlockInfo: " expression="json-eval($.result)"/>
+            </log>
+            <property name="BlockTime" expression="json-eval($.result.time)" scope="default" type="INTEGER" description="BlockTime"/>
+            <property name="BlockTxCount" value="0" scope="default" type="INTEGER" description="BlockTxCount"/>
             <payloadFactory media-type="xml" description="CreateDBPayload">
                 <format>
                     <p:setCoinInfo xmlns:p="org.casinocoin.public.api.dss">
                         <xs:Difficulty xmlns:xs="org.casinocoin.public.api.dss">$1</xs:Difficulty>
                         <xs:Hashrate xmlns:xs="org.casinocoin.public.api.dss">$2</xs:Hashrate>
                         <xs:CoinSupply xmlns:xs="org.casinocoin.public.api.dss">$3</xs:CoinSupply>
-                        <xs:BlockHeight xmlns:xs="org.casinocoin.public.api.dss">$4</xs:BlockHeight>
-                        <xs:PriceBTC xmlns:xs="org.casinocoin.public.api.dss">$5</xs:PriceBTC>
-                        <xs:PriceUSD xmlns:xs="org.casinocoin.public.api.dss">$6</xs:PriceUSD>
-                        <xs:PriceEUR xmlns:xs="org.casinocoin.public.api.dss">$7</xs:PriceEUR>
-                        <xs:PriceCNY xmlns:xs="org.casinocoin.public.api.dss">$8</xs:PriceCNY>
-                        <xs:PriceJPY xmlns:xs="org.casinocoin.public.api.dss">$9</xs:PriceJPY>
-                        <xs:PriceRUB xmlns:xs="org.casinocoin.public.api.dss">$10</xs:PriceRUB>
+                        <xs:MarketCapital xmlns:xs="org.casinocoin.public.api.dss">$4</xs:MarketCapital>
+                        <xs:BlockHeight xmlns:xs="org.casinocoin.public.api.dss">$5</xs:BlockHeight>
+                        <xs:BlockHash xmlns:xs="org.casinocoin.public.api.dss">$6</xs:BlockHash>
+                        <xs:BlockTime xmlns:xs="org.casinocoin.public.api.dss">$7</xs:BlockTime>
+                        <xs:BlockTxCount xmlns:xs="org.casinocoin.public.api.dss">$8</xs:BlockTxCount>
+                        <xs:PriceBTC xmlns:xs="org.casinocoin.public.api.dss">$9</xs:PriceBTC>
+                        <xs:PriceUSD xmlns:xs="org.casinocoin.public.api.dss">$10</xs:PriceUSD>
+                        <xs:PriceEUR xmlns:xs="org.casinocoin.public.api.dss">$11</xs:PriceEUR>
+                        <xs:PriceCNY xmlns:xs="org.casinocoin.public.api.dss">$12</xs:PriceCNY>
+                        <xs:PriceJPY xmlns:xs="org.casinocoin.public.api.dss">$13</xs:PriceJPY>
+                        <xs:PriceRUB xmlns:xs="org.casinocoin.public.api.dss">$14</xs:PriceRUB>
                     </p:setCoinInfo>
                 </format>
                 <args>
                     <arg evaluator="xml" expression="$ctx:Difficulty"/>
-                    <arg evaluator="xml" expression="$ctx:HashRate"/>
+                    <arg evaluator="xml" expression="$ctx:HashRateGH"/>
                     <arg evaluator="xml" expression="$ctx:CoinSupply"/>
+                    <arg evaluator="xml" expression="number($ctx:PriceBtcUsd) * number($ctx:LastPrice) * $ctx:CoinSupply"/>
                     <arg evaluator="xml" expression="$ctx:BlockHeight"/>
+                    <arg evaluator="xml" expression="$ctx:BlockHash"/>
+                    <arg evaluator="xml" expression="$ctx:BlockTime"/>
+                    <arg evaluator="xml" expression="$ctx:BlockTxCount"/>
                     <arg evaluator="xml" expression="number($ctx:LastPrice)"/>
                     <arg evaluator="xml" expression="number($ctx:PriceBtcUsd) * number($ctx:LastPrice)"/>
                     <arg evaluator="xml" expression="number($ctx:PriceUsdEur) * number($ctx:PriceBtcUsd) * number($ctx:LastPrice)"/>
@@ -61,7 +142,12 @@
             <property name="HTTP_METHOD" value="POST" scope="axis2" type="STRING"/>
             <call>
                 <endpoint>
-                    <address uri="http://localhost:9773/services/Casinocoin-Public-API-DSS.HTTPEndpoint/setCoinInfo" format="rest"/>
+                    <address uri="http://localhost:9773/services/Casinocoin-Public-API-DSS.HTTPEndpoint/setCoinInfo" format="rest">
+                        <timeout>
+                            <duration>10000</duration>
+                            <responseAction>fault</responseAction>
+                        </timeout>
+                    </address>
                 </endpoint>
             </call>
             <payloadFactory media-type="xml" description="SetResponse">
@@ -70,9 +156,14 @@
                 </format>
                 <args/>
             </payloadFactory>
-            <respond description="Respond"/>
+            <respond description="Finished"/>
         </inSequence>
         <outSequence/>
-        <faultSequence/>
+        <faultSequence>
+            <log description="LogFault">
+                <property name="#" value="###### Casinocoin-CoinInfo Fault #####"/>
+                <property name="message" expression="get-property('ERROR_MESSAGE')"/>
+            </log>
+        </faultSequence>
     </resource>
 </api>

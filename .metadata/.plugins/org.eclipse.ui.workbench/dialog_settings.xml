@@ -2,7 +2,7 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.internal.QuickAccess">
 		<item value="1440" key="dialogWidth"/>
-		<item value="749" key="dialogHeight"/>
+		<item value="849" key="dialogHeight"/>
 		<list key="orderedProviders">
 		</list>
 		<list key="textArray">
@@ -12,15 +12,31 @@
 		<list key="textEntries">
 		</list>
 	</section>
+	<section name="NewWizardAction">
+		<item value="org.wso2.developerstudio.eclipse.artifact.newesbproject" key="NewWizardSelectionPage.STORE_SELECTED_ID"/>
+		<list key="NewWizardSelectionPage.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.wso2.developerstudio.eclipse.capp.project"/>
+			<item value="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.extensions"/>
+			<item value="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation"/>
+			<item value="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.features"/>
+			<item value="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.message.mediation/org.wso2.developerstudio.eclipse.message.mediation.project.types"/>
+			<item value="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting"/>
+			<item value="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting/org.wso2.developerstudio.eclipse.service.hosting.project.types"/>
+			<item value="org.wso2.developerstudio.eclipse.capp.project/org.wso2.developerstudio.eclipse.service.hosting/org.wso2.developerstudio.eclipse.service.hosting.features"/>
+		</list>
+	</section>
 	<section name="ShowViewDialog">
-		<item value="392" key="DIALOG_WIDTH"/>
-		<item value="org.eclipse.wst.server.ui.ServersView" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
+		<item value="311" key="DIALOG_WIDTH"/>
+		<item value="org.eclipse.pde.runtime.LogView" key="ShowViewDialog.STORE_SELECTED_VIEW_ID"/>
 		<item value="266" key="DIALOG_Y_ORIGIN"/>
 		<item value="773" key="DIALOG_X_ORIGIN"/>
-		<item value="479" key="DIALOG_HEIGHT"/>
-		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="439" key="DIALOG_HEIGHT"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|5|0|Segoe UI" key="DIALOG_FONT_NAME"/>
 		<list key="ShowViewDialog.STORE_EXPANDED_CATEGORIES_ID">
+			<item value="org.eclipse.ui"/>
 			<item value="org.eclipse.wst.server.ui"/>
 		</list>
+	</section>
+	<section name="ImportExportAction">
 	</section>
 </section>
