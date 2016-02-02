@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/developerstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_a0Mp4MT6EeWK6Njocv0RvQ" type="Esb" name="api_Casinocoin-ExchangeInfo.esb_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_a1FasMT6EeWK6Njocv0RvQ" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_a1FatcT6EeWK6Njocv0RvQ" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_a3Gz8MT6EeWK6Njocv0RvQ" type="3668" fontName="Segoe UI">
+        <children xmi:type="notation:BasicCompartment" xmi:id="_a3Gz8sT6EeWK6Njocv0RvQ" type="7044">
+          <children xmi:type="notation:Node" xmi:id="_a3LscMT6EeWK6Njocv0RvQ" type="3669">
+            <children xmi:type="notation:Node" xmi:id="_a3NhoMT6EeWK6Njocv0RvQ" type="3670">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3NhocT6EeWK6Njocv0RvQ"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_a3NhosT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_a3Nho8T6EeWK6Njocv0RvQ"/>
+              <element xmi:type="esb:APIResourceInputConnector" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@inputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3NhpMT6EeWK6Njocv0RvQ" x="81" y="-15"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_a3NhpcT6EeWK6Njocv0RvQ" type="3671">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3NhpsT6EeWK6Njocv0RvQ"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_a3Nhp8T6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_a3NhqMT6EeWK6Njocv0RvQ"/>
+              <element xmi:type="esb:APIResourceOutputConnector" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@outputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3NhqcT6EeWK6Njocv0RvQ" x="81" y="-27"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_a3NhqsT6EeWK6Njocv0RvQ" type="3730">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3Nhq8T6EeWK6Njocv0RvQ"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_a3NhrMT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_a3NhrcT6EeWK6Njocv0RvQ"/>
+              <element xmi:type="esb:APIResourceOutSequenceOutputConnector" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@outSequenceOutputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3NhrsT6EeWK6Njocv0RvQ" x="105" y="-15"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_a3OIsMT6EeWK6Njocv0RvQ" type="3672">
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3OIscT6EeWK6Njocv0RvQ"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_a3OIssT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_a3OIs8T6EeWK6Njocv0RvQ"/>
+              <element xmi:type="esb:APIResourceFaultInputConnector" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@faultInputConnector"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3OItMT6EeWK6Njocv0RvQ" x="81" y="3"/>
+            </children>
+            <children xmi:type="notation:Node" xmi:id="_a3OItcT6EeWK6Njocv0RvQ" type="3673">
+              <children xmi:type="notation:Node" xmi:id="_a3TBMMT6EeWK6Njocv0RvQ" type="3487">
+                <children xmi:type="notation:Node" xmi:id="_a3ToQMT6EeWK6Njocv0RvQ" type="3608">
+                  <children xmi:type="notation:DecorationNode" xmi:id="_a3ToRcT6EeWK6Njocv0RvQ" type="7034">
+                    <children xmi:type="notation:Node" xmi:id="_a3jf4MT6EeWK6Njocv0RvQ" type="3517">
+                      <children xmi:type="notation:DecorationNode" xmi:id="_a3jf5cT6EeWK6Njocv0RvQ" type="5144"/>
+                      <children xmi:type="notation:Node" xmi:id="_a3w7QMT6EeWK6Njocv0RvQ" type="3103">
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3w7QcT6EeWK6Njocv0RvQ"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_a3w7QsT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_a3w7Q8T6EeWK6Njocv0RvQ"/>
+                        <element xmi:type="esb:CloneMediatorInputConnector" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@inputConnector"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3w7RMT6EeWK6Njocv0RvQ" x="-6" y="-5"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_a3w7RcT6EeWK6Njocv0RvQ" type="3104">
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3w7RsT6EeWK6Njocv0RvQ"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_a3w7R8T6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_a3w7SMT6EeWK6Njocv0RvQ"/>
+                        <element xmi:type="esb:CloneMediatorOutputConnector" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@outputConnector"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3w7ScT6EeWK6Njocv0RvQ" x="-11" y="-9"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_a3xiUMT6EeWK6Njocv0RvQ" type="3133">
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3xiUcT6EeWK6Njocv0RvQ"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_a3xiUsT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_a3xiU8T6EeWK6Njocv0RvQ"/>
+                        <element xmi:type="esb:CloneMediatorTargetOutputConnector" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@targetsOutputConnector.0"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3xiVMT6EeWK6Njocv0RvQ" x="81" y="-9"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_a3xiVcT6EeWK6Njocv0RvQ" type="3603">
+                        <children xmi:type="notation:Node" xmi:id="_a36sQMT6EeWK6Njocv0RvQ" type="3604">
+                          <styles xmi:type="notation:DescriptionStyle" xmi:id="_a36sQcT6EeWK6Njocv0RvQ"/>
+                          <styles xmi:type="notation:FontStyle" xmi:id="_a36sQsT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                          <styles xmi:type="notation:LineStyle" xmi:id="_a36sQ8T6EeWK6Njocv0RvQ"/>
+                          <element xmi:type="esb:CloneTargetContainer" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@cloneContainer/@cloneTargetContainer.0"/>
+                          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a36sRMT6EeWK6Njocv0RvQ"/>
+                        </children>
+                        <children xmi:type="notation:Node" xmi:id="_a4R4oMT6EeWK6Njocv0RvQ" type="3604">
+                          <styles xmi:type="notation:DescriptionStyle" xmi:id="_a4R4ocT6EeWK6Njocv0RvQ"/>
+                          <styles xmi:type="notation:FontStyle" xmi:id="_a4R4osT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                          <styles xmi:type="notation:LineStyle" xmi:id="_a4R4o8T6EeWK6Njocv0RvQ"/>
+                          <element xmi:type="esb:CloneTargetContainer" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@cloneContainer/@cloneTargetContainer.1"/>
+                          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a4R4pMT6EeWK6Njocv0RvQ"/>
+                        </children>
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3xiVsT6EeWK6Njocv0RvQ"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_a3xiV8T6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_a3xiWMT6EeWK6Njocv0RvQ"/>
+                        <element xmi:type="esb:CloneMediatorContainer" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@cloneContainer"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3xiWcT6EeWK6Njocv0RvQ"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_a4WxIMT6EeWK6Njocv0RvQ" type="3133">
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_a4WxIcT6EeWK6Njocv0RvQ"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_a4WxIsT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_a4WxI8T6EeWK6Njocv0RvQ"/>
+                        <element xmi:type="esb:CloneMediatorTargetOutputConnector" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@targetsOutputConnector.1"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a4WxJMT6EeWK6Njocv0RvQ"/>
+                      </children>
+                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3jf4cT6EeWK6Njocv0RvQ"/>
+                      <styles xmi:type="notation:FontStyle" xmi:id="_a3jf4sT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                      <styles xmi:type="notation:LineStyle" xmi:id="_a3jf48T6EeWK6Njocv0RvQ"/>
+                      <element xmi:type="esb:CloneMediator" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3jf5MT6EeWK6Njocv0RvQ" x="26" y="95" width="170" height="204"/>
+                    </children>
+                    <children xmi:type="notation:Node" xmi:id="_a4es8MT6EeWK6Njocv0RvQ" type="3491">
+                      <children xmi:type="notation:DecorationNode" xmi:id="_a4es9cT6EeWK6Njocv0RvQ" type="5166"/>
+                      <children xmi:type="notation:Node" xmi:id="_a4kzkMT6EeWK6Njocv0RvQ" type="3008">
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_a4kzkcT6EeWK6Njocv0RvQ"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_a4kzksT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_a4kzk8T6EeWK6Njocv0RvQ"/>
+                        <element xmi:type="esb:DropMediatorInputConnector" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1/@inputConnector"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a4kzlMT6EeWK6Njocv0RvQ"/>
+                      </children>
+                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_a4es8cT6EeWK6Njocv0RvQ"/>
+                      <styles xmi:type="notation:FontStyle" xmi:id="_a4es8sT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                      <styles xmi:type="notation:LineStyle" xmi:id="_a4es88T6EeWK6Njocv0RvQ"/>
+                      <element xmi:type="esb:DropMediator" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.1"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a4es9MT6EeWK6Njocv0RvQ" x="235" y="95" width="77" height="75"/>
+                    </children>
+                    <styles xmi:type="notation:TitleStyle" xmi:id="_a3ToRsT6EeWK6Njocv0RvQ" showTitle="true"/>
+                  </children>
+                  <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3ToQcT6EeWK6Njocv0RvQ"/>
+                  <styles xmi:type="notation:FontStyle" xmi:id="_a3ToQsT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                  <styles xmi:type="notation:LineStyle" xmi:id="_a3ToQ8T6EeWK6Njocv0RvQ"/>
+                  <element xmi:type="esb:MediatorFlow" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3ToRMT6EeWK6Njocv0RvQ"/>
+                </children>
+                <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3TBMcT6EeWK6Njocv0RvQ"/>
+                <styles xmi:type="notation:FontStyle" xmi:id="_a3TBMsT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                <styles xmi:type="notation:LineStyle" xmi:id="_a3TBM8T6EeWK6Njocv0RvQ"/>
+                <element xmi:type="esb:ProxyServiceSequenceAndEndpointContainer" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3TBNMT6EeWK6Njocv0RvQ"/>
+              </children>
+              <children xmi:type="notation:Node" xmi:id="_a3TBNcT6EeWK6Njocv0RvQ" type="3488">
+                <children xmi:type="notation:Node" xmi:id="_a3U2YMT6EeWK6Njocv0RvQ" type="3530">
+                  <children xmi:type="notation:DecorationNode" xmi:id="_a3U2ZcT6EeWK6Njocv0RvQ" type="7019">
+                    <children xmi:type="notation:Node" xmi:id="_a4rhQMT6EeWK6Njocv0RvQ" type="3495">
+                      <children xmi:type="notation:DecorationNode" xmi:id="_a4rhRcT6EeWK6Njocv0RvQ" type="5168"/>
+                      <children xmi:type="notation:Node" xmi:id="_a4t9gMT6EeWK6Njocv0RvQ" type="3018">
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_a4t9gcT6EeWK6Njocv0RvQ"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_a4t9gsT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_a4t9g8T6EeWK6Njocv0RvQ"/>
+                        <element xmi:type="esb:LogMediatorInputConnector" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@faultContainer/@mediatorFlow/@children.0/@inputConnector"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a4t9hMT6EeWK6Njocv0RvQ" x="-6" y="-5"/>
+                      </children>
+                      <children xmi:type="notation:Node" xmi:id="_a4t9hcT6EeWK6Njocv0RvQ" type="3019">
+                        <styles xmi:type="notation:DescriptionStyle" xmi:id="_a4t9hsT6EeWK6Njocv0RvQ"/>
+                        <styles xmi:type="notation:FontStyle" xmi:id="_a4t9h8T6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                        <styles xmi:type="notation:LineStyle" xmi:id="_a4t9iMT6EeWK6Njocv0RvQ"/>
+                        <element xmi:type="esb:LogMediatorOutputConnector" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@faultContainer/@mediatorFlow/@children.0/@outputConnector"/>
+                        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a4t9icT6EeWK6Njocv0RvQ" x="-11" y="-9"/>
+                      </children>
+                      <styles xmi:type="notation:DescriptionStyle" xmi:id="_a4rhQcT6EeWK6Njocv0RvQ"/>
+                      <styles xmi:type="notation:FontStyle" xmi:id="_a4rhQsT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                      <styles xmi:type="notation:LineStyle" xmi:id="_a4rhQ8T6EeWK6Njocv0RvQ"/>
+                      <element xmi:type="esb:LogMediator" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@faultContainer/@mediatorFlow/@children.0"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a4rhRMT6EeWK6Njocv0RvQ" x="26" y="58" width="77" height="75"/>
+                    </children>
+                  </children>
+                  <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3U2YcT6EeWK6Njocv0RvQ"/>
+                  <styles xmi:type="notation:FontStyle" xmi:id="_a3U2YsT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                  <styles xmi:type="notation:LineStyle" xmi:id="_a3U2Y8T6EeWK6Njocv0RvQ"/>
+                  <element xmi:type="esb:MediatorFlow" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@faultContainer/@mediatorFlow"/>
+                  <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3U2ZMT6EeWK6Njocv0RvQ"/>
+                </children>
+                <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3TBNsT6EeWK6Njocv0RvQ"/>
+                <styles xmi:type="notation:FontStyle" xmi:id="_a3TBN8T6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+                <styles xmi:type="notation:LineStyle" xmi:id="_a3TBOMT6EeWK6Njocv0RvQ"/>
+                <element xmi:type="esb:ProxyServiceFaultContainer" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@faultContainer"/>
+                <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3TBOcT6EeWK6Njocv0RvQ"/>
+              </children>
+              <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3OItsT6EeWK6Njocv0RvQ"/>
+              <styles xmi:type="notation:FontStyle" xmi:id="_a3OIt8T6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+              <styles xmi:type="notation:LineStyle" xmi:id="_a3OIuMT6EeWK6Njocv0RvQ"/>
+              <element xmi:type="esb:ProxyServiceContainer" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container"/>
+              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3OIucT6EeWK6Njocv0RvQ"/>
+            </children>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_a3LsccT6EeWK6Njocv0RvQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_a3LscsT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_a3Lsc8T6EeWK6Njocv0RvQ"/>
+            <element xmi:type="esb:APIResource" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3LsdMT6EeWK6Njocv0RvQ" width="300" height="400"/>
+          </children>
+        </children>
+        <element xmi:type="esb:SynapseAPI" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a3Gz8cT6EeWK6Njocv0RvQ" width="40000" height="45000"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_a1FascT6EeWK6Njocv0RvQ"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_a1FassT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_a1Fas8T6EeWK6Njocv0RvQ"/>
+    <element xmi:type="esb:EsbServer" href="api_Casinocoin-ExchangeInfo.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_a1FatMT6EeWK6Njocv0RvQ"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_a0Mp4cT6EeWK6Njocv0RvQ"/>
+  <element xmi:type="esb:EsbDiagram" href="api_Casinocoin-ExchangeInfo.esb#/"/>
+  <edges xmi:type="notation:Connector" xmi:id="_a5D7wMT6EeWK6Njocv0RvQ" type="4001" source="_a3NhpcT6EeWK6Njocv0RvQ" target="_a3w7QMT6EeWK6Njocv0RvQ" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_a5D7wcT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_a5D7wsT6EeWK6Njocv0RvQ" points="[11, 5, -5, 0]$[10, 0, -6, -5]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_a5HmIMT6EeWK6Njocv0RvQ" type="4001" source="_a3w7RcT6EeWK6Njocv0RvQ" target="_a4kzkMT6EeWK6Njocv0RvQ" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_a5HmIcT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@sequenceAndEndpointContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_a5HmIsT6EeWK6Njocv0RvQ" points="[1, 9, 0, 4]$[0, 0, -1, -5]"/>
+  </edges>
+  <edges xmi:type="notation:Connector" xmi:id="_a5L3kMT6EeWK6Njocv0RvQ" type="4001" source="_a4t9hcT6EeWK6Njocv0RvQ" target="_a3OIsMT6EeWK6Njocv0RvQ" roundedBendpointsRadius="5" routing="Rectilinear">
+    <styles xmi:type="notation:FontStyle" xmi:id="_a5L3kcT6EeWK6Njocv0RvQ" fontName="Segoe UI"/>
+    <element xmi:type="esb:EsbLink" href="api_Casinocoin-ExchangeInfo.esb#//@server/@children.0/@resources.0/@container/@faultContainer/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
+    <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_a5L3ksT6EeWK6Njocv0RvQ" points="[-11, 1, 10, 0]$[-10, 0, 11, -1]"/>
+  </edges>
+</notation:Diagram>

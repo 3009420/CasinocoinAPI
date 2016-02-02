@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:esb="http:///org/wso2/developerstudio/eclipse/gmf/esb" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmi:id="_HwmLUMEDEeWCD9uGpc4uBw" type="Esb" name="api_Casinocoin-Security.esb_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_HyoysMEDEeWCD9uGpc4uBw" type="2001">
+    <children xmi:type="notation:DecorationNode" xmi:id="_HypZwMEDEeWCD9uGpc4uBw" type="7001">
+      <children xmi:type="notation:Shape" xmi:id="_qyZtsMQjEeWmx_rVPO_R5Q" type="3668" fontName="Segoe UI">
+        <children xmi:type="notation:BasicCompartment" xmi:id="_qyZtssQjEeWmx_rVPO_R5Q" type="7044">
+          <children xmi:type="notation:Node" xmi:id="_qyf0UMQjEeWmx_rVPO_R5Q" type="3669">
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_qyf0UcQjEeWmx_rVPO_R5Q"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_qyf0UsQjEeWmx_rVPO_R5Q" fontName="Segoe UI"/>
+            <styles xmi:type="notation:LineStyle" xmi:id="_qyf0U8QjEeWmx_rVPO_R5Q"/>
+            <element xmi:type="esb:APIResource" href="api_Casinocoin-Security.esb#//@server/@children.0/@resources.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qyf0VMQjEeWmx_rVPO_R5Q" width="300" height="400"/>
+          </children>
+        </children>
+        <element xmi:type="esb:SynapseAPI" href="api_Casinocoin-Security.esb#//@server/@children.0"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_qyZtscQjEeWmx_rVPO_R5Q" width="40000" height="45000"/>
+      </children>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_HyoyscEDEeWCD9uGpc4uBw"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_HyoyssEDEeWCD9uGpc4uBw" fontName="Segoe UI"/>
+    <styles xmi:type="notation:LineStyle" xmi:id="_Hyoys8EDEeWCD9uGpc4uBw"/>
+    <element xmi:type="esb:EsbServer" href="api_Casinocoin-Security.esb#//@server"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HyoytMEDEeWCD9uGpc4uBw"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_HwmLUcEDEeWCD9uGpc4uBw"/>
+  <element xmi:type="esb:EsbDiagram" href="api_Casinocoin-Security.esb#/"/>
+</notation:Diagram>

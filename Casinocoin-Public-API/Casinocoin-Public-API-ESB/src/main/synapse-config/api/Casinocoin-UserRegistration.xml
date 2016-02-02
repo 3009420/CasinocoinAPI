@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<api xmlns="http://ws.apache.org/ns/synapse" name="Casinocoin-UserRegistration" context="/UserRegistration">
+    <resource methods="POST" uri-template="/RegisterUser">
+        <inSequence>
+            <property name="Username" expression="json-eval($.username)" scope="default" type="STRING"/>
+            <property name="Password" expression="json-eval($.password)" scope="default" type="STRING"/>
+            <property name="Firstname" expression="json-eval($.firstname)" scope="default" type="STRING"/>
+            <property name="Lastname" expression="json-eval($.lastname)" scope="default" type="STRING"/>
+            <log description="LogRegisterUser">
+                <property name="### " value="RegisterUser"/>
+                <property name="Username" expression="$ctx:Username"/>
+                <property name="Password" expression="$ctx:Password"/>
+                <property name="Firstname" expression="$ctx:Firstname"/>
+                <property name="Lastname" expression="$ctx:Lastname"/>
+            </log>
+            <payloadFactory media-type="xml" description="RegisterUserPayload">
+                <format>
+                    <ser:registerUser xmlns:ser="http://services.mgt.identity.carbon.wso2.org">
+                        <ser:userName>$1</ser:userName>
+                        <ser:password>$2</ser:password>
+                        <ser:claims>
+                            <xsd:claimUri xmlns:xsd="http://dto.mgt.identity.carbon.wso2.org/xsd">http://wso2.org/claims/givenname</xsd:claimUri>
+                            <xsd:claimValue xmlns:xsd="http://dto.mgt.identity.carbon.wso2.org/xsd">$3</xsd:claimValue>
+                        </ser:claims>
+                        <ser:claims>
+                            <xsd:claimUri xmlns:xsd="http://dto.mgt.identity.carbon.wso2.org/xsd">http://wso2.org/claims/lastname</xsd:claimUri>
+                            <xsd:claimValue xmlns:xsd="http://dto.mgt.identity.carbon.wso2.org/xsd">$4</xsd:claimValue>
+                        </ser:claims>
+                    </ser:registerUser>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:Username"/>
+                    <arg evaluator="xml" expression="$ctx:Password"/>
+                    <arg evaluator="xml" expression="$ctx:Firstname"/>
+                    <arg evaluator="xml" expression="$ctx:Lastname"/>
+                </args>
+            </payloadFactory>
+            <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+            <property name="service_username" value="createuser@casinocoin.org" scope="default" type="STRING"/>
+            <property name="service_password" value="EjrJ0ldR4Vm468pTSOab" scope="default" type="STRING"/>
+            <property xmlns:ns="http://org.apache.synapse/xsd" name="Authorization" expression="fn:concat('Basic ', base64Encode(fn:concat(get-property('service_username'),':',get-property('service_password'))))" scope="transport" type="STRING"/>
+            <call>
+                <endpoint>
+                    <http method="post" uri-template="https://localhost:9463/services/UserInformationRecoveryService.UserInformationRecoveryServiceHttpsSoap11Endpoint/">
+                        <timeout>
+                            <duration>5000</duration>
+                            <responseAction>fault</responseAction>
+                        </timeout>
+                    </http>
+                </endpoint>
+            </call>
+            <property xmlns:ax2315="http://beans.mgt.identity.carbon.wso2.org/xsd" name="ErrorElement" expression="//ax2315:error/text()" scope="default" type="STRING"/>
+            <property xmlns:ax2315="http://beans.mgt.identity.carbon.wso2.org/xsd" name="ErrorMessage" expression="//ax2315:error" scope="default" type="STRING"/>
+            <property xmlns:ax2315="http://beans.mgt.identity.carbon.wso2.org/xsd" name="ConfirmatioinCode" expression="//ax2315:key" scope="default" type="STRING"/>
+            <property xmlns:ax2315="http://beans.mgt.identity.carbon.wso2.org/xsd" name="Username" expression="//ax2315:userId" scope="default" type="STRING"/>
+            <property xmlns:ax2315="http://beans.mgt.identity.carbon.wso2.org/xsd" name="Successful" expression="//ax2315:verified" scope="default" type="STRING"/>
+            <log description="LogUserRegistrationResult">
+                <property name="### " value="UserRegistrationResult:"/>
+                <property name="Body" expression="$body"/>
+                <property name="ConfirmatioinCode" expression="get-property('ConfirmatioinCode')"/>
+                <property name="Username" expression="get-property('Username')"/>
+                <property name="ErrorMessage" expression="get-property('ErrorMessage')"/>
+            </log>
+            <payloadFactory media-type="json" description="CreateResponse">
+                <format>{"successful":$1, "error":"$2", "username":"$3", "confirmationCode":"$4"}</format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:Successful"/>
+                    <arg evaluator="xml" expression="$ctx:ErrorMessage"/>
+                    <arg evaluator="xml" expression="$ctx:Username"/>
+                    <arg evaluator="xml" expression="$ctx:ConfirmatioinCode"/>
+                </args>
+            </payloadFactory>
+            <property name="messageType" value="application/json" scope="axis2" type="STRING" description="messageType"/>
+            <respond description="SendResponse"/>
+        </inSequence>
+        <outSequence/>
+        <faultSequence/>
+    </resource>
+    <resource methods="GET" uri-template="/ConfirmRegistration?confirmation={confirmationCode}&amp;userstoredomain={userstoreDomain}&amp;username={username}&amp;tenantdomain={tenantDomain}">
+        <inSequence>
+            <property name="ConfirmationCode" expression="get-property('uri.var.confirmationCode')" scope="default" type="STRING"/>
+            <property name="Username" expression="get-property('uri.var.username')" scope="default" type="STRING"/>
+            <property name="UserstoreDomain" expression="get-property('uri.var.userstoreDomain')" scope="default" type="STRING"/>
+            <property name="TenantDomain" expression="get-property('uri.var.tenantDomain')" scope="default" type="STRING"/>
+            <log description="LogConfirmRegistration">
+                <property name="### " value="ConfirmRegistration"/>
+                <property name="Username " expression="$ctx:query.param.username"/>
+                <property name="ConfirmationCode " expression="$ctx:query.param.confirmationCode"/>
+            </log>
+        </inSequence>
+        <outSequence/>
+        <faultSequence>
+            <log description="LogFault">
+                <property name="#" value="###### Casinocoin-UserRegistration Fault #####"/>
+                <property name="message" expression="get-property('ERROR_MESSAGE')"/>
+            </log>
+        </faultSequence>
+    </resource>
+</api>
