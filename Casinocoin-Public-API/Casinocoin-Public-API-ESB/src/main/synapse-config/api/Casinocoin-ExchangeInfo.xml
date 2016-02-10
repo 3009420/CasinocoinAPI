@@ -2,18 +2,18 @@
 <api xmlns="http://ws.apache.org/ns/synapse" name="Casinocoin-ExchangeInfo" context="/CSCExchangeInfo">
     <resource methods="GET">
         <inSequence>
-            <clone id="ExecUpdatesParallel">
+            <header name="To" scope="default" action="remove"/>
+            <property name="RESPONSE" value="true" scope="default" type="STRING"/>
+            <property name="NO_ENTITY_BODY" scope="axis2" action="remove"/>
+            <clone continueParent="true" id="ExecUpdatesParallel">
                 <target sequence="updateAlcurEX"/>
                 <target sequence="updateAlterdice"/>
             </clone>
-            <drop description="Finished"/>
+            <send/>
         </inSequence>
         <outSequence/>
         <faultSequence>
-            <log description="LogFault">
-                <property name="#" value="###### Casinocoin-ExchangeInfo Update Fault #####"/>
-                <property name="message" expression="get-property('ERROR_MESSAGE')"/>
-            </log>
+            <drop description="Drop message"/>
         </faultSequence>
     </resource>
 </api>

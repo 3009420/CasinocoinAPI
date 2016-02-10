@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sequence xmlns="http://ws.apache.org/ns/synapse" name="updateAlterdice">
+    <property name="RESPONSE" value="false" scope="default" type="STRING"/>
     <property name="AlterdiceExchangeID" value="ALTERDICE" scope="default" type="STRING" description="AlterdiceInfo"/>
     <property name="NO_ENTITY_BODY" scope="axis2" action="remove" description="NO_ENTITY_BODY"/>
     <call>
@@ -7,7 +8,7 @@
             <http method="get" uri-template="https://api.alterdice.com/market/csc_btc">
                 <timeout>
                     <duration>10000</duration>
-                    <responseAction>fault</responseAction>
+                    <responseAction>discard</responseAction>
                 </timeout>
             </http>
         </endpoint>
@@ -20,7 +21,7 @@
             <http method="get" uri-template="https://api.alterdice.com/market/csc_btc/orderbook">
                 <timeout>
                     <duration>10000</duration>
-                    <responseAction>fault</responseAction>
+                    <responseAction>discard</responseAction>
                 </timeout>
             </http>
         </endpoint>
@@ -66,9 +67,10 @@
             <address uri="http://localhost:9773/services/Casinocoin-Public-API-DSS.HTTPEndpoint/updateExchangeInfo" format="rest">
                 <timeout>
                     <duration>5000</duration>
-                    <responseAction>fault</responseAction>
+                    <responseAction>discard</responseAction>
                 </timeout>
             </address>
         </endpoint>
     </call>
+    <drop description="End"/>
 </sequence>

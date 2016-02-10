@@ -39,9 +39,10 @@
             <property name="service_username" value="createuser@casinocoin.org" scope="default" type="STRING"/>
             <property name="service_password" value="EjrJ0ldR4Vm468pTSOab" scope="default" type="STRING"/>
             <property xmlns:ns="http://org.apache.synapse/xsd" name="Authorization" expression="fn:concat('Basic ', base64Encode(fn:concat(get-property('service_username'),':',get-property('service_password'))))" scope="transport" type="STRING"/>
+            <property name="SOAPAction" value="urn:registerUser" scope="transport" type="STRING"/>
             <call>
                 <endpoint>
-                    <http method="post" uri-template="https://localhost:9463/services/UserInformationRecoveryService.UserInformationRecoveryServiceHttpsSoap11Endpoint/">
+                    <http method="post" uri-template="https://localhost:9463/services/UserInformationRecoveryService.UserInformationRecoveryServiceHttpsSoap12Endpoint/">
                         <timeout>
                             <duration>5000</duration>
                             <responseAction>fault</responseAction>
@@ -84,16 +85,79 @@
             <property name="TenantDomain" expression="get-property('uri.var.tenantDomain')" scope="default" type="STRING"/>
             <log description="LogConfirmRegistration">
                 <property name="### " value="ConfirmRegistration"/>
-                <property name="Username " expression="$ctx:query.param.username"/>
-                <property name="ConfirmationCode " expression="$ctx:query.param.confirmationCode"/>
+                <property name="Username " expression="$ctx:Username"/>
+                <property name="ConfirmationCode " expression="$ctx:ConfirmationCode"/>
             </log>
+            <payloadFactory media-type="xml" description="ConfirmUserPayload">
+                <format>
+                    <ser:confirmUserSelfRegistration xmlns:ser="http://services.mgt.identity.carbon.wso2.org">
+                        <ser:username>$1</ser:username>
+                        <ser:code>$2</ser:code>
+                        <ser:tenantDomain>$3</ser:tenantDomain>
+                    </ser:confirmUserSelfRegistration>
+                </format>
+                <args>
+                    <arg evaluator="xml" expression="$ctx:Username"/>
+                    <arg evaluator="xml" expression="$ctx:ConfirmationCode"/>
+                    <arg evaluator="xml" expression="$ctx:TenantDomain"/>
+                </args>
+            </payloadFactory>
+            <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+            <property name="messageType" value="text/xml" scope="axis2" type="STRING"/>
+            <property name="service_username" value="createuser@casinocoin.org" scope="default" type="STRING"/>
+            <property name="service_password" value="EjrJ0ldR4Vm468pTSOab" scope="default" type="STRING"/>
+            <property xmlns:ns="http://org.apache.synapse/xsd" name="Authorization" expression="fn:concat('Basic ', base64Encode(fn:concat(get-property('service_username'),':',get-property('service_password'))))" scope="transport" type="STRING"/>
+            <call>
+                <endpoint>
+                    <http method="post" uri-template="https://localhost:9463/services/UserInformationRecoveryService.UserInformationRecoveryServiceHttpsSoap12Endpoint/"/>
+                </endpoint>
+            </call>
+            <log description="LogRegistrationConfirmationResult">
+                <property name="### " value="RegistrationConfirmationResult:"/>
+                <property name="Body" expression="$body"/>
+            </log>
+            <property xmlns:ax2315="http://beans.mgt.identity.carbon.wso2.org/xsd" name="ErrorMessage" expression="//ax2315:error" scope="default" type="STRING"/>
+            <property xmlns:ax2315="http://beans.mgt.identity.carbon.wso2.org/xsd" name="Successful" expression="//ax2315:verified" scope="default" type="STRING"/>
+            <filter source="get-property('Successful')" regex="^true$">
+                <then>
+                    <payloadFactory media-type="xml" description="HTML Response">
+                        <format>
+                            <html xmlns="">
+                                <head>
+                                    <title>Registration Confirmation</title>
+                                    <meta http-equiv="refresh" content="0;URL='http://wallet.casinocoin.org/registration_success.html?email=$1'"/>
+                                </head>
+                                <body/>
+                            </html>
+                        </format>
+                        <args>
+                            <arg evaluator="xml" expression="$ctx:Username"/>
+                        </args>
+                    </payloadFactory>
+                </then>
+                <else>
+                    <payloadFactory media-type="xml" description="HTML Response">
+                        <format>
+                            <html xmlns="">
+                                <head>
+                                    <title>Confirmation Error</title>
+                                    <meta http-equiv="refresh" content="0;URL='http://wallet.casinocoin.org/registration_error.html?error=$1'"/>
+                                </head>
+                                <body/>
+                            </html>
+                        </format>
+                        <args>
+                            <arg evaluator="xml" expression="$ctx:ErrorMessage"/>
+                        </args>
+                    </payloadFactory>
+                </else>
+            </filter>
+            <property name="messageType" value="text/html" scope="axis2" type="STRING"/>
+            <respond description="Send Output"/>
         </inSequence>
         <outSequence/>
         <faultSequence>
-            <log description="LogFault">
-                <property name="#" value="###### Casinocoin-UserRegistration Fault #####"/>
-                <property name="message" expression="get-property('ERROR_MESSAGE')"/>
-            </log>
+            <drop description="Drop message"/>
         </faultSequence>
     </resource>
 </api>

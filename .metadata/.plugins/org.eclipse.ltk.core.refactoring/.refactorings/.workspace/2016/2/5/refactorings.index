@@ -1,0 +1,4 @@
+1454411385739	Delete resource 'Casinocoin-Public-API-ESB/src/main/synapse-config/tasks/UpdateCoinInfoTask.xml'
+1454411401171	Delete resource 'Casinocoin-Public-API-ESB/src/main/synapse-config/tasks/UpdateExchangeInfoTask.xml'
+1454492234869	Delete resource 'Casinocoin-Public-API-ESB/src/main/synapse-config/proxy-services/CoinInfoProxy.xml'
+1454492241509	Delete resource 'Casinocoin-Public-API-ESB/src/main/synapse-config/proxy-services/ExchangeInfoProxy.xml'

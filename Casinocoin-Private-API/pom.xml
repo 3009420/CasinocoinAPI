@@ -10,7 +10,16 @@
   <description>Casinocoin-Private-API</description>
   <properties>
     <artifact.types>jaggery/app=zip,service/rule=aar,lib/library/bundle=jar,synapse/message-processors=xml,synapse/endpointTemplate=xml,synapse/proxy-service=xml,synapse/message-store=xml,carbon/application=car,registry/resource=zip,lib/dataservice/validator=jar,synapse/endpoint=xml,web/application=war,synapse/sequence=xml,synapse/configuration=xml,lib/registry/handlers=jar,synapse/task=xml,service/meta=xml,webapp/jaxws=war,synapse/api=xml,cep/bucket=xml,bpel/workflow=zip,lib/registry/filter=jar,service/dataservice=dbs,synapse/local-entry=xml,synapse/priority-executor=xml,synapse/event-source=xml,synapse/template=xml,lib/carbon/ui=jar,service/axis2=aar,synapse/sequenceTemplate=xml,wso2/gadget=dar,lib/synapse/mediator=jar</artifact.types>
+    <org.casinocoin.Casinocoin-Private-API-ESB.api_._Casinocoin-Security>capp/EnterpriseServiceBus</org.casinocoin.Casinocoin-Private-API-ESB.api_._Casinocoin-Security>
   </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.casinocoin.Casinocoin-Private-API-ESB.api</groupId>
+      <artifactId>Casinocoin-Security</artifactId>
+      <version>1.0.0</version>
+      <type>xml</type>
+    </dependency>
+  </dependencies>
   <repositories>
     <repository>
       <releases>

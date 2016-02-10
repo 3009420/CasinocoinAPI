@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <api xmlns="http://ws.apache.org/ns/synapse" name="Casinocoin-Security" context="/CSCSecurity">
-    <resource methods="GET" uri-template="/RegisterUser">
-        <inSequence/>
-        <outSequence/>
+    <resource methods="POST" uri-template="/authenticate">
+        <inSequence>
+            <property name="REST_URL_POSTFIX" scope="axis2" action="remove"/>
+            <property name="HTTP_METHOD" value="POST" scope="axis2" type="STRING"/>
+            <property name="Content-Type" value="application/x-www-form-urlencoded" scope="transport" type="STRING"/>
+            <call>
+                <endpoint>
+                    <address uri="https://localhost:9463//oauth2/token" format="rest"/>
+                </endpoint>
+            </call>
+            <log description="LogOauthResult">
+                <property name="### " value="OAuth result"/>
+                <property name="content" expression="json-eval($)"/>
+            </log>
+        </inSequence>
+        <outSequence>
+            <property name="messageType" value="application/json" scope="axis2" type="STRING" description="messageType"/>
+            <send/>
+        </outSequence>
         <faultSequence/>
     </resource>
 </api>

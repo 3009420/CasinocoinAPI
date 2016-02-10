@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sequence xmlns="http://ws.apache.org/ns/synapse" name="updateAlcurEX">
+    <property name="RESPONSE" value="false" scope="default" type="STRING"/>
     <property name="AlcurEXExchangeID" value="ALCUREX" scope="default" type="STRING" description="AlcurEXInfo"/>
     <property name="NO_ENTITY_BODY" scope="axis2" action="remove" description="NO_ENTITY_BODY"/>
     <call>
@@ -7,7 +8,7 @@
             <http method="get" uri-template="https://alcurex.org/api/market.php?pair=CSC_BTC&amp;price=buy">
                 <timeout>
                     <duration>10000</duration>
-                    <responseAction>fault</responseAction>
+                    <responseAction>discard</responseAction>
                 </timeout>
             </http>
         </endpoint>
@@ -19,7 +20,7 @@
             <http method="get" uri-template="https://alcurex.org/api/market.php?pair=CSC_BTC&amp;price=sell">
                 <timeout>
                     <duration>10000</duration>
-                    <responseAction>fault</responseAction>
+                    <responseAction>discard</responseAction>
                 </timeout>
             </http>
         </endpoint>
@@ -31,7 +32,7 @@
             <http method="get" uri-template="https://alcurex.org/api/market.php?pair=CSC_BTC&amp;last=last">
                 <timeout>
                     <duration>10000</duration>
-                    <responseAction>fault</responseAction>
+                    <responseAction>discard</responseAction>
                 </timeout>
             </http>
         </endpoint>
@@ -43,7 +44,7 @@
             <http method="get" uri-template="https://alcurex.org/api/market.php?currency=CSC&amp;interval=24&amp;pair=CSC_BTC">
                 <timeout>
                     <duration>10000</duration>
-                    <responseAction>fault</responseAction>
+                    <responseAction>discard</responseAction>
                 </timeout>
             </http>
         </endpoint>
@@ -74,9 +75,10 @@
             <address uri="http://localhost:9773/services/Casinocoin-Public-API-DSS.HTTPEndpoint/updateExchangeInfo" format="rest">
                 <timeout>
                     <duration>5000</duration>
-                    <responseAction>fault</responseAction>
+                    <responseAction>discard</responseAction>
                 </timeout>
             </address>
         </endpoint>
     </call>
+    <drop description="End"/>
 </sequence>

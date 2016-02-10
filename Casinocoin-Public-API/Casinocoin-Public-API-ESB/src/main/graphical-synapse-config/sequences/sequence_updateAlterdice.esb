@@ -5,110 +5,83 @@
       <outputConnector>
         <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.0/@inputConnector"/>
       </outputConnector>
-      <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.12/@outputConnector/@outgoingLink"/>
+      <inputConnector/>
       <mediatorFlow>
-        <children xsi:type="esb:PropertyMediator" description="AlterdiceInfo" propertyName="AlterdiceExchangeID" value="ALTERDICE">
+        <children xsi:type="esb:PropertyMediator" propertyName="RESPONSE" value="false">
           <inputConnector incomingLinks="//@server/@children.0/@outputConnector/@outgoingLink"/>
           <outputConnector>
             <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.1/@inputConnector"/>
           </outputConnector>
           <valueExpression prettyName="Property Expression" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
         </children>
-        <children xsi:type="esb:PropertyMediator" description="NO_ENTITY_BODY" propertyName="NO_ENTITY_BODY" propertyAction="remove" propertyScope="axis2">
+        <children xsi:type="esb:PropertyMediator" description="AlterdiceInfo" propertyName="AlterdiceExchangeID" value="ALTERDICE">
           <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.0/@outputConnector/@outgoingLink"/>
           <outputConnector>
             <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@inputConnector"/>
           </outputConnector>
+          <valueExpression prettyName="Property Expression" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
         </children>
-        <children xsi:type="esb:CallMediator">
+        <children xsi:type="esb:PropertyMediator" description="NO_ENTITY_BODY" propertyName="NO_ENTITY_BODY" propertyAction="remove" propertyScope="axis2">
           <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.1/@outputConnector/@outgoingLink"/>
           <outputConnector>
             <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.3/@inputConnector"/>
           </outputConnector>
+        </children>
+        <children xsi:type="esb:CallMediator">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.4/@inputConnector"/>
+          </outputConnector>
           <endpointOutputConnector>
-            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.2/@mediatorFlow/@children.0/@inputConnector"/>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.3/@mediatorFlow/@children.0/@inputConnector"/>
           </endpointOutputConnector>
           <mediatorFlow>
-            <children xsi:type="esb:HTTPEndpoint" timeOutDuration="10000" timeOutAction="fault" suspendMaximumDuration="9223372036854775807" suspendProgressionFactor="1.0" URITemplate="https://api.alterdice.com/market/csc_btc">
+            <children xsi:type="esb:HTTPEndpoint" timeOutDuration="10000" timeOutAction="discard" suspendMaximumDuration="9223372036854775807" suspendProgressionFactor="1.0" URITemplate="https://api.alterdice.com/market/csc_btc">
               <reliableMessagingPolicy prettyName="ReliableMessagingPolicy Key" keyName="ReliableMessagingPolicy Key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
               <securityPolicy prettyName="SecurityPolicy Key" keyName="SecurityPolicy Key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
-              <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@endpointOutputConnector/@outgoingLink"/>
+              <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.3/@endpointOutputConnector/@outgoingLink"/>
             </children>
           </mediatorFlow>
           <endpointRegistrykey prettyName="Endpoint Key" keyName="Endpoint Key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
           <endpointXpath prettyName="Endpoint XPath" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
         </children>
         <children xsi:type="esb:PropertyMediator" description="LastPriceBTC" propertyName="AlterdiceLastPriceBTC" valueType="EXPRESSION">
-          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.2/@outputConnector/@outgoingLink"/>
-          <outputConnector>
-            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.4/@inputConnector"/>
-          </outputConnector>
-          <valueExpression propertyValue="json-eval($.data.price)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
-        </children>
-        <children xsi:type="esb:PropertyMediator" description="Volume24H" propertyName="AlterdiceVolume24H" valueType="EXPRESSION">
           <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.3/@outputConnector/@outgoingLink"/>
           <outputConnector>
             <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.5/@inputConnector"/>
           </outputConnector>
-          <valueExpression propertyValue="json-eval($.data.volume_traded)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
+          <valueExpression propertyValue="json-eval($.data.price)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
         </children>
-        <children xsi:type="esb:PropertyMediator" description="NO_ENTITY_BODY" propertyName="NO_ENTITY_BODY" propertyAction="remove" propertyScope="axis2">
+        <children xsi:type="esb:PropertyMediator" description="Volume24H" propertyName="AlterdiceVolume24H" valueType="EXPRESSION">
           <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.4/@outputConnector/@outgoingLink"/>
           <outputConnector>
             <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.6/@inputConnector"/>
           </outputConnector>
+          <valueExpression propertyValue="json-eval($.data.volume_traded)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
         </children>
-        <children xsi:type="esb:CallMediator">
+        <children xsi:type="esb:PropertyMediator" description="NO_ENTITY_BODY" propertyName="NO_ENTITY_BODY" propertyAction="remove" propertyScope="axis2">
           <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.5/@outputConnector/@outgoingLink"/>
           <outputConnector>
             <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.7/@inputConnector"/>
           </outputConnector>
-          <endpointOutputConnector>
-            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.6/@mediatorFlow/@children.0/@inputConnector"/>
-          </endpointOutputConnector>
-          <mediatorFlow>
-            <children xsi:type="esb:HTTPEndpoint" timeOutDuration="10000" timeOutAction="fault" suspendMaximumDuration="9223372036854775807" suspendProgressionFactor="1.0" URITemplate="https://api.alterdice.com/market/csc_btc/orderbook">
-              <reliableMessagingPolicy prettyName="ReliableMessagingPolicy Key" keyName="ReliableMessagingPolicy Key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
-              <securityPolicy prettyName="SecurityPolicy Key" keyName="SecurityPolicy Key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
-              <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.6/@endpointOutputConnector/@outgoingLink"/>
-            </children>
-          </mediatorFlow>
-          <endpointRegistrykey prettyName="Endpoint Key" keyName="Endpoint Key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
-          <endpointXpath prettyName="Endpoint XPath" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
         </children>
-        <children xsi:type="esb:FilterMediator" regex="^\[\]$">
+        <children xsi:type="esb:CallMediator">
           <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.6/@outputConnector/@outgoingLink"/>
           <outputConnector>
             <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.8/@inputConnector"/>
           </outputConnector>
-          <passOutputConnector>
-            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.7/@filterContainer/@passContainer/@mediatorFlow/@children.0/@inputConnector"/>
-          </passOutputConnector>
-          <failOutputConnector>
-            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.7/@filterContainer/@failContainer/@mediatorFlow/@children.0/@inputConnector"/>
-          </failOutputConnector>
-          <xpath prettyName="Filter Source XPath" propertyName="filterSourceXpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
-          <source propertyValue="json-eval($.data.buy[0])" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
-          <filterContainer>
-            <passContainer>
-              <mediatorFlow>
-                <children xsi:type="esb:PropertyMediator" description="LastBidPriceBTC" propertyName="AlterdiceLastBidPriceBTC" value="0.0">
-                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.7/@passOutputConnector/@outgoingLink"/>
-                  <outputConnector/>
-                  <valueExpression prettyName="Property Expression" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
-                </children>
-              </mediatorFlow>
-            </passContainer>
-            <failContainer>
-              <mediatorFlow>
-                <children xsi:type="esb:PropertyMediator" description="LastBidPriceBTC" propertyName="AlterdiceLastBidPriceBTC" valueType="EXPRESSION">
-                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.7/@failOutputConnector/@outgoingLink"/>
-                  <outputConnector/>
-                  <valueExpression propertyValue="json-eval($.data.buy[0].price)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
-                </children>
-              </mediatorFlow>
-            </failContainer>
-          </filterContainer>
+          <endpointOutputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.7/@mediatorFlow/@children.0/@inputConnector"/>
+          </endpointOutputConnector>
+          <mediatorFlow>
+            <children xsi:type="esb:HTTPEndpoint" timeOutDuration="10000" timeOutAction="discard" suspendMaximumDuration="9223372036854775807" suspendProgressionFactor="1.0" URITemplate="https://api.alterdice.com/market/csc_btc/orderbook">
+              <reliableMessagingPolicy prettyName="ReliableMessagingPolicy Key" keyName="ReliableMessagingPolicy Key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
+              <securityPolicy prettyName="SecurityPolicy Key" keyName="SecurityPolicy Key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
+              <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.7/@endpointOutputConnector/@outgoingLink"/>
+            </children>
+          </mediatorFlow>
+          <endpointRegistrykey prettyName="Endpoint Key" keyName="Endpoint Key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
+          <endpointXpath prettyName="Endpoint XPath" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
         </children>
         <children xsi:type="esb:FilterMediator" regex="^\[\]$">
           <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.7/@outputConnector/@outgoingLink"/>
@@ -122,7 +95,7 @@
             <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.8/@filterContainer/@failContainer/@mediatorFlow/@children.0/@inputConnector"/>
           </failOutputConnector>
           <xpath prettyName="Filter Source XPath" propertyName="filterSourceXpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
-          <source propertyValue="json-eval($.data.sell[0])" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
+          <source propertyValue="json-eval($.data.buy[0])" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
           <filterContainer>
             <passContainer>
               <mediatorFlow>
@@ -135,8 +108,42 @@
             </passContainer>
             <failContainer>
               <mediatorFlow>
-                <children xsi:type="esb:PropertyMediator" description="LastAskPriceBTC" propertyName="AlterdiceLastAskPriceBTC" valueType="EXPRESSION">
+                <children xsi:type="esb:PropertyMediator" description="LastBidPriceBTC" propertyName="AlterdiceLastBidPriceBTC" valueType="EXPRESSION">
                   <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.8/@failOutputConnector/@outgoingLink"/>
+                  <outputConnector/>
+                  <valueExpression propertyValue="json-eval($.data.buy[0].price)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
+                </children>
+              </mediatorFlow>
+            </failContainer>
+          </filterContainer>
+        </children>
+        <children xsi:type="esb:FilterMediator" regex="^\[\]$">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.8/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.10/@inputConnector"/>
+          </outputConnector>
+          <passOutputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.9/@filterContainer/@passContainer/@mediatorFlow/@children.0/@inputConnector"/>
+          </passOutputConnector>
+          <failOutputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.9/@filterContainer/@failContainer/@mediatorFlow/@children.0/@inputConnector"/>
+          </failOutputConnector>
+          <xpath prettyName="Filter Source XPath" propertyName="filterSourceXpath" propertyValue="/default/xpath" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
+          <source propertyValue="json-eval($.data.sell[0])" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
+          <filterContainer>
+            <passContainer>
+              <mediatorFlow>
+                <children xsi:type="esb:PropertyMediator" description="LastBidPriceBTC" propertyName="AlterdiceLastBidPriceBTC" value="0.0">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.9/@passOutputConnector/@outgoingLink"/>
+                  <outputConnector/>
+                  <valueExpression prettyName="Property Expression" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
+                </children>
+              </mediatorFlow>
+            </passContainer>
+            <failContainer>
+              <mediatorFlow>
+                <children xsi:type="esb:PropertyMediator" description="LastAskPriceBTC" propertyName="AlterdiceLastAskPriceBTC" valueType="EXPRESSION">
+                  <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.9/@failOutputConnector/@outgoingLink"/>
                   <outputConnector/>
                   <valueExpression propertyValue="json-eval($.data.sell[0].price)" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
                 </children>
@@ -161,41 +168,44 @@
           <args argumentType="Expression">
             <argumentExpression propertyValue="$ctx:AlterdiceExchangeID" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
           </args>
-          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.8/@outputConnector/@outgoingLink"/>
-          <outputConnector>
-            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.10/@inputConnector"/>
-          </outputConnector>
-        </children>
-        <children xsi:type="esb:PropertyMediator" propertyName="REST_URL_POSTFIX" propertyAction="remove" propertyScope="axis2">
           <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.9/@outputConnector/@outgoingLink"/>
           <outputConnector>
             <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.11/@inputConnector"/>
           </outputConnector>
         </children>
-        <children xsi:type="esb:PropertyMediator" propertyName="HTTP_METHOD" propertyScope="axis2" value="POST">
+        <children xsi:type="esb:PropertyMediator" propertyName="REST_URL_POSTFIX" propertyAction="remove" propertyScope="axis2">
           <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.10/@outputConnector/@outgoingLink"/>
           <outputConnector>
             <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.12/@inputConnector"/>
           </outputConnector>
+        </children>
+        <children xsi:type="esb:PropertyMediator" propertyName="HTTP_METHOD" propertyScope="axis2" value="POST">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.11/@outputConnector/@outgoingLink"/>
+          <outputConnector>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.13/@inputConnector"/>
+          </outputConnector>
           <valueExpression prettyName="Property Expression" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
         </children>
         <children xsi:type="esb:CallMediator">
-          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.11/@outputConnector/@outgoingLink"/>
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.12/@outputConnector/@outgoingLink"/>
           <outputConnector>
-            <outgoingLink target="//@server/@children.0/@inputConnector"/>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.14/@inputConnector"/>
           </outputConnector>
           <endpointOutputConnector>
-            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.12/@mediatorFlow/@children.0/@inputConnector"/>
+            <outgoingLink target="//@server/@children.0/@mediatorFlow/@children.13/@mediatorFlow/@children.0/@inputConnector"/>
           </endpointOutputConnector>
           <mediatorFlow>
-            <children xsi:type="esb:AddressEndPoint" timeOutDuration="5000" timeOutAction="fault" suspendMaximumDuration="9223372036854775807" suspendProgressionFactor="1.0" format="rest" URI="http://localhost:9773/services/Casinocoin-Public-API-DSS.HTTPEndpoint/updateExchangeInfo">
+            <children xsi:type="esb:AddressEndPoint" timeOutDuration="5000" timeOutAction="discard" suspendMaximumDuration="9223372036854775807" suspendProgressionFactor="1.0" format="rest" URI="http://localhost:9773/services/Casinocoin-Public-API-DSS.HTTPEndpoint/updateExchangeInfo">
               <reliableMessagingPolicy prettyName="ReliableMessagingPolicy Key" keyName="ReliableMessagingPolicy Key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
               <securityPolicy prettyName="SecurityPolicy Key" keyName="SecurityPolicy Key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
-              <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.12/@endpointOutputConnector/@outgoingLink"/>
+              <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.13/@endpointOutputConnector/@outgoingLink"/>
             </children>
           </mediatorFlow>
           <endpointRegistrykey prettyName="Endpoint Key" keyName="Endpoint Key" keyValue="/default/key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
           <endpointXpath prettyName="Endpoint XPath" propertyName="expression" propertyValue="/default/expression" namespaces="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>
+        </children>
+        <children xsi:type="esb:DropMediator" description="End">
+          <inputConnector incomingLinks="//@server/@children.0/@mediatorFlow/@children.13/@outputConnector/@outgoingLink"/>
         </children>
       </mediatorFlow>
       <onError prettyName="OnError sequence Key" keyName="OnError sequence Key" filters="ACED0005737200116A6176612E7574696C2E486173684D61700507DAC1C31660D103000246000A6C6F6164466163746F724900097468726573686F6C6478703F400000000000107708000000100000000078"/>

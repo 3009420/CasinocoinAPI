@@ -22,10 +22,6 @@
                     <property name="BlockHash" expression="json-eval($.result)" scope="default" type="STRING"/>
                 </default>
             </switch>
-            <log description="LogBlockHash">
-                <property name="#" value="######"/>
-                <property name="### BlockHash: " expression="$ctx:BlockHash"/>
-            </log>
             <dblookup description="GetLastCSCPrice">
                 <connection>
                     <pool>
@@ -40,62 +36,26 @@
             <property name="NO_ENTITY_BODY" scope="axis2" action="remove" description="NO_ENTITY_BODY"/>
             <call>
                 <endpoint>
-                    <http method="get" uri-template="https://www.bitstamp.net/api/ticker/"/>
+                    <http method="get" uri-template="https://www.bitstamp.net/api/ticker/">
+                        <timeout>
+                            <duration>5000</duration>
+                            <responseAction>fault</responseAction>
+                        </timeout>
+                    </http>
                 </endpoint>
             </call>
             <property name="PriceBtcUsd" expression="json-eval($.last)" scope="default" type="STRING" description="PriceBtcUsd"/>
             <call>
                 <endpoint>
-                    <http method="get" uri-template="http://api.fixer.io/latest?base=USD"/>
+                    <http method="get" uri-template="http://api.fixer.io/latest?base=USD">
+                        <timeout>
+                            <duration>5000</duration>
+                            <responseAction>fault</responseAction>
+                        </timeout>
+                    </http>
                 </endpoint>
             </call>
-            <property name="PriceUsdEur" expression="json-eval($.rates.EUR)" scope="default" type="STRING" description="PriceBtcUsd"/>
-            <property name="PriceUsdCny" expression="json-eval($.rates.CNY)" scope="default" type="STRING" description="PriceUsdCny"/>
-            <property name="PriceUsdJpy" expression="json-eval($.rates.JPY)" scope="default" type="STRING" description="PriceUsdJpy"/>
-            <property name="PriceUsdRub" expression="json-eval($.rates.RUB)" scope="default" type="STRING" description="PriceUsdRub"/>
-            <payloadFactory media-type="json" description="CreateMiningInfoPayload">
-                <format>{"jsonrpc": "1.0", "id": "wso2rpc", "method": "getmininginfo", "params": []}</format>
-                <args/>
-            </payloadFactory>
-            <property name="Authorization" expression="fn:concat('Basic ', base64Encode('casinocoinrpc:9x9iu8533XSucSpW9YDmN3ZXwR595AjeVo1pDCmvxSy5'))" scope="transport" type="STRING"/>
-            <property name="DISABLE_CHUNKING" value="true" scope="axis2" type="STRING"/>
-            <property name="messageType" value="application/json" scope="axis2" type="STRING" description="messageType"/>
-            <call>
-                <endpoint>
-                    <http method="post" uri-template="http://localhost:9432/"/>
-                </endpoint>
-            </call>
-            <property name="Difficulty" expression="json-eval($.result.difficulty)" scope="default" type="STRING" description="Difficulty"/>
-            <property name="HashRate" expression="json-eval($.result.networkhashps)" scope="default" type="STRING" description="HashRate"/>
-            <property name="HashRateGH" expression="number($ctx:HashRate) div 1000000000" scope="default" type="STRING" description="HashRate"/>
-            <property name="BlockHeight" expression="json-eval($.result.blocks)" scope="default" type="STRING" description="LastPrice"/>
-            <payloadFactory media-type="json" description="CreateCoinsupplyPayload">
-                <format>{"jsonrpc": "1.0", "id": "wso2rpc", "method": "getcoinsupply", "params": []}</format>
-                <args/>
-            </payloadFactory>
-            <property name="Authorization" expression="fn:concat('Basic ', base64Encode('casinocoinrpc:9x9iu8533XSucSpW9YDmN3ZXwR595AjeVo1pDCmvxSy5'))" scope="transport" type="STRING"/>
-            <property name="DISABLE_CHUNKING" value="true" scope="axis2" type="STRING"/>
-            <property name="messageType" value="application/json" scope="axis2" type="STRING" description="messageType"/>
-            <call>
-                <endpoint>
-                    <http method="post" uri-template="http://localhost:9432/"/>
-                </endpoint>
-            </call>
-            <property name="CoinSupply" expression="json-eval($.result)" scope="default" type="STRING" description="CoinSupply"/>
-            <payloadFactory media-type="json" description="CreateBlockInfoPayload">
-                <format>{"jsonrpc": "1.0", "id": "wso2rpc", "method": "getblock", "params": ["$1"]}</format>
-                <args>
-                    <arg evaluator="xml" expression="$ctx:BlockHash"/>
-                </args>
-            </payloadFactory>
-            <property name="Authorization" expression="fn:concat('Basic ', base64Encode('casinocoinrpc:9x9iu8533XSucSpW9YDmN3ZXwR595AjeVo1pDCmvxSy5'))" scope="transport" type="STRING"/>
-            <property name="DISABLE_CHUNKING" value="true" scope="axis2" type="STRING"/>
-            <property name="messageType" value="application/json" scope="axis2" type="STRING" description="messageType"/>
-            <call>
-                <endpoint>
-                    <http method="post" uri-template="http://localhost:9432/"/>
-                </endpoint>
-            </call>
+            <call/>
             <log description="LogRPCResult">
                 <property name="#" value="######"/>
                 <property name="### BlockInfo: " expression="json-eval($.result)"/>
@@ -144,26 +104,17 @@
                 <endpoint>
                     <address uri="http://localhost:9773/services/Casinocoin-Public-API-DSS.HTTPEndpoint/setCoinInfo" format="rest">
                         <timeout>
-                            <duration>10000</duration>
+                            <duration>5000</duration>
                             <responseAction>fault</responseAction>
                         </timeout>
                     </address>
                 </endpoint>
             </call>
-            <payloadFactory media-type="xml" description="SetResponse">
-                <format>
-                    <result xmlns="">OK</result>
-                </format>
-                <args/>
-            </payloadFactory>
             <respond description="Finished"/>
         </inSequence>
         <outSequence/>
         <faultSequence>
-            <log description="LogFault">
-                <property name="#" value="###### Casinocoin-CoinInfo Fault #####"/>
-                <property name="message" expression="get-property('ERROR_MESSAGE')"/>
-            </log>
+            <drop description="Drop message"/>
         </faultSequence>
     </resource>
 </api>
